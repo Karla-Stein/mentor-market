@@ -8,10 +8,10 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Profile(models.Model):
-    name = models.CharField(max_length=100, unique=True)
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="mentor_profile"
     )
+    name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
     excerpt = models.TextField(blank=True)
     bio = models.TextField()
@@ -21,7 +21,7 @@ class Profile(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
-        ordering = ["-member_since", "user"]  # newest Profile is displayed first  # noqa 501
+        ordering = ["-member_since"]  # newest Profile is displayed first  # noqa 501
     
     def __str__(self):
         return f"Profile of {self.user}"
