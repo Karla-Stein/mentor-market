@@ -15,9 +15,9 @@
                     <div class="card" id="mentor-card">
                         <img id="profile-image" src="{% static 'images/nobody.jpg' %}" class="scale" alt="Profile picture">
                         <div class="card-body text-center d-flex flex-column">
-                            <h5 class="card-title">Name: {{ profile.name }}</h5>
+                            <h6 class="card-title text-muted ">Name: {{ profile.name }}</h6>
                             <p class="card-text">{{ profile.excerpt }}</p>
-                            <a href="#" class="btn btn-primary mt-auto card-btn">Go to Profile</a>
+                            <a href="{% url 'profile_detail' profile.slug %}" class="btn btn-primary mt-auto card-btn">Go to Profile</a>
                         </div>
                     </div>
                 </div>
