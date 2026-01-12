@@ -19,6 +19,7 @@ class Profile(models.Model):
     specialism = models.TextField()
     member_since = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    updated_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["-member_since"]  # newest Profile is displayed first  # noqa 501
