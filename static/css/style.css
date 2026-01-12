@@ -60,6 +60,22 @@ body {
     border-radius: 20px;
 }
 
+#mentor-card {
+    max-width: 280px;
+    margin: 0 auto; /* centers cards */
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+#profile-image{
+    height: 220px;
+    object-fit: contain;
+}
+
+.card-btn{
+    background-color: var(--accent-color);
+}
+
 .btn:hover{
     background-color: var(--accent-color);
     color: var(--primary-color);

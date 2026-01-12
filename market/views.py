@@ -8,4 +8,4 @@ from .models import Profile
 class ProfileList(generic.ListView):
     queryset = Profile.objects.filter(status=1).order_by("-member_since")
     template_name = "market/index.html"
-    paginate_by = 6
+    paginate_by = 8

@@ -4,32 +4,24 @@
 {% block profile %}
 
 <!-- index.html content starts here, code institute code reused and adjusted-->
-<div class="container-fluid">
+<div class="container">
     <div class="row">
 
         <!-- Profile Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for profile in profile_list %}
-                <div class="col-md-3">
-                    <div class="card mb-4 h-100" style="width: 20rem;">
-                        <div class="card-body">
-                            <div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Name: {{ profile.name }}</p>
-                                </div>
-                            </div>
-                            <a href="#" class="post-link">
-                                <h2 class="card-title">{{ profile.excerpt }}</h2>
-                            </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ profile.specialism}}
-                            </p>
+                <div class="col-sm-6 col-md-4 col-lg-3 d-flex my-4 justify-content-evenly">
+                    <div class="card" id="mentor-card">
+                        <img id="profile-image" src="{% static 'images/nobody.jpg' %}" class="scale" alt="Profile picture">
+                        <div class="card-body text-center d-flex flex-column">
+                            <h5 class="card-title">Name: {{ profile.name }}</h5>
+                            <p class="card-text">{{ profile.excerpt }}</p>
+                            <a href="#" class="btn btn-primary mt-auto card-btn">Go to Profile</a>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
+                {% if forloop.counter|divisibleby:8 %}
             </div>
             <div class="row">
                 {% endif %}
