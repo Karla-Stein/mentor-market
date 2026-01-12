@@ -48,11 +48,12 @@ body {
     margin-right: 0px;
 }
 
-#about{
-    color: white;
-}
 
 #about:hover{
+    font-weight: bolder;
+}
+
+#home:hover{
     font-weight: bolder;
 }
 
