@@ -81,6 +81,17 @@ body {
     color: var(--primary-color);
 }
 
+.page-link{
+    border-radius: 20px;
+    background-color: white;
+    color: black;
+}
+
+.page-link:hover{
+    color: white;
+    background-color: var(--accent-color);
+}
+
 /* Media queries */
 
 @media screen and (min-width: 320px) {
