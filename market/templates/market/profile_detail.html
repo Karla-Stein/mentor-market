@@ -1,2 +1,35 @@
-{% load static%}
-{% extends 'base.html '%}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block profile%}
+
+<!-- Profile image -->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center" id="intro">
+                <div class="card" style="width: 18rem;">
+                    <img id="detailed-image" src="{% static 'images/nobody.jpg' %}" class="card-img-top" alt="Profile-picture">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About & Skill section -->
+<section class="my-5" id="skills">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p>Name: {{profile.name}} </p>
+                <h3>{{profile.excerpt}}</h3>
+                <hr>
+                <p>{{profile.bio}}</p>
+                <p>Skills: {{profile.specialism}}</p>
+                <p>Member since {{profile.member_since}}</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock profile%}
