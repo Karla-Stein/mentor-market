@@ -28,9 +28,18 @@ def profile_detail(request, slug):
     profile = get_object_or_404(queryset, slug=slug)
     time_slots = TimeSlot.objects.filter(mentor=profile, availability_status=0)
 
+    grouped_by_date = {}
+
+    for slot in time_slots:
+        if slot.date not in grouped_by_date:
+            grouped_by_date[slot.date] = []
+
+        grouped_by_date[slot.date].append(slot)
+
     return render(
         request,
         "market/profile_detail.html",
         {"profile": profile,
-         "time_slots": time_slots}
+         "time_slots": time_slots,
+         "grouped_by_date": grouped_by_date}
     )

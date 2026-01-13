@@ -9,7 +9,8 @@
         <div class="row">
             <div class="col-12 d-flex justify-content-center" id="intro">
                 <div class="card" style="width: 18rem;">
-                    <img id="detailed-image" src="{% static 'images/nobody.jpg' %}" class="card-img-top" alt="Profile-picture">
+                    <img id="detailed-image" src="{% static 'images/nobody.jpg' %}" class="card-img-top"
+                        alt="Profile-picture">
                 </div>
             </div>
         </div>
@@ -31,17 +32,27 @@
     </div>
 </section>
 <!-- Availability section  -->
- <section id="avilability">
+<section id="avilability">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                {% for slot in time_slots %}
-                <p>Mentor is available on {{slot.date}} from {{slot.start_time}} to {{ slot.end_time }}</p>
+                {% for date, slots in grouped_by_date.items %}
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{date}}
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for slot in slots %}
+                        <li><a class="dropdown-item" href="#">{{slot.start_time}} - {{slot.end_time}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 {% endfor %}
             </div>
         </div>
     </div>
 
- </section>
+</section>
 
 {% endblock profile%}
