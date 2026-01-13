@@ -13,7 +13,7 @@ class Profile(models.Model):
     )
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    excerpt = models.TextField(blank=True)
+    excerpt = models.TextField(max_length=120)
     bio = models.TextField()
     experience = models.TextField()
     specialism = models.TextField()
