@@ -1,5 +1,5 @@
 from django.db import models
-from market.models import Profile
+from market.models import TimeSlot
 
 # Create your models here.
 
@@ -7,21 +7,17 @@ STATUS = ((0, "Open"), (1, "Booked"))
 
 
 class Booking(models.Model):
-    mentor = models.ForeignKey(
-        Profile, on_delete=models.CASCADE, related_name="bookings"
+    time_slot = models.OneToOneField(
+        TimeSlot, on_delete=models.CASCADE, related_name="bookings"
     )
-    date = models.DateField()
-    start_time = models.TimeField()
-    end_time = models.TimeField()
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=1)
     visitor_name = models.CharField(max_length=100)
     visitor_email = models.EmailField()
     visitor_phone = models.CharField(max_length=25)
     booked_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        unique_together = ("mentor", "date", "start_time", "end_time")
-        ordering = ["-date", "-start_time"]  # newest Profile is displayed first  # noqa 501
+        ordering = ["-booked_at"]  # latest booking to be shown first 
     
     def __str__(self):
-        return f"{self.mentor} is booked on {self.date} at {self.start_time}"
+        return f"{self.visitor_name} booked {self.time_slot.mentor.name} on {self.time_slot.date} at {self.time_slot.start_time}"  # noqa 501
