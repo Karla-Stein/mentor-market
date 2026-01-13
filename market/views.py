@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Profile
+from .models import Profile, TimeSlot
 
 # Create your views here.
 
@@ -26,10 +26,11 @@ def profile_detail(request, slug):
     """
     queryset = Profile.objects.filter(status=1)
     profile = get_object_or_404(queryset, slug=slug)
+    time_slots = TimeSlot.objects.filter(mentor=profile, availability_status=0)
 
     return render(
         request,
         "market/profile_detail.html",
-        {"profile": profile}
+        {"profile": profile,
+         "time_slots": time_slots}
     )
-

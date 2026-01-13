@@ -26,10 +26,22 @@
                 <p>{{profile.bio}}</p>
                 <p>Skills: {{profile.specialism}}</p>
                 <p>Member since {{profile.member_since}}</p>
-
             </div>
         </div>
     </div>
 </section>
+<!-- Availability section  -->
+ <section id="avilability">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% for slot in time_slots %}
+                <p>Mentor is available on {{slot.date}} from {{slot.start_time}} to {{ slot.end_time }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+ </section>
 
 {% endblock profile%}
