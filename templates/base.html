@@ -9,7 +9,8 @@
 <html lang="en">
 
 <head>
-    <title>Mentor Market</title>
+    <!-- titles to be injected here -->
+    <title>{% block head_title %}Mentor Market{% endblock %}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap stylesheet -->
@@ -54,19 +55,26 @@
                             aria-current="page" href="{% url 'account_login' %}">Log in</a>
                     </li>
                     {% endif %}
-                    {% if user.is_authenticated %}
-                    <span class="navbar-text">
-                        You are logged in as {{ user }}
-                    </span>
-                    {% endif %}
+                </ul>
             </div>
         </div>
     </nav>
-    <main flex-shrink-0 main-bg>
+    <main class="flex-shrink-0 main-bg">
+        <div class="d-flex">
+            {% if user.is_authenticated %}
+            <span class="navbar-text ms-auto">
+                You are logged in as {{ user }}
+            </span>
+        </div>
+        {% endif %}
         <!-- market/index.html will be injected here -->
         {% block profile %}
         <!-- Profiles Go here -->
         {% endblock profile %}
+        <!-- templates/login.html will be injected here -->
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
 
     </main>
     <footer>
