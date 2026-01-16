@@ -49,4 +49,12 @@ def profile_detail(request, slug):
     )
 
 
-# def set_mentor_profile(request):
+def set_mentor_profile(request):
+    profile_form = ProfileSetup()
+
+    return render(
+        request,
+        "market/profile_setup.html",
+        {"profile_form": profile_form}
+
+    )
