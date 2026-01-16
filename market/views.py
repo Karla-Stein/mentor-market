@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Profile, TimeSlot
+from .forms import ProfileSetup
 
 # Create your views here.
 
@@ -46,3 +47,6 @@ def profile_detail(request, slug):
          "time_slots": time_slots,
          "grouped_by_date": grouped_by_date}
     )
+
+
+# def set_mentor_profile(request):
