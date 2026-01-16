@@ -1,6 +1,9 @@
 {% load static %}
 
 {% url 'home' as home_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,11 +17,11 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
     <!-- Custome CSS -->
-     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-     <!-- Bootstrap navbar -->
+    <!-- Bootstrap navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container" id="nav-container">
             <a class="navbar-brand brand me-4" href="{% url 'home' %}">Mentor Market |</a>
@@ -29,24 +32,33 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a id="home" class="nav-link {% if request.path == home_url %} active {% endif %} mx-2" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a id="home" class="nav-link {% if request.path == home_url %} active {% endif %} mx-2"
+                            aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a id="about" class="nav-link active mx-2" aria-current="page" href="#">About</a>
                     </li>
+                    <!-- Code reused from walkthrough project and adjusted to fit this project -->
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-bar-btn mx-2" href="#" >Sign Up</a>
+                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == logout_url %}active{% endif %}"
+                            aria-current="page" href="{% url 'account_logout' %}">Log out</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == signup_url %}active{% endif %}"
+                            aria-current="page" href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-bar-btn mx-3" href="#" >Log In</a>
+                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == login_url %}active{% endif %}"
+                            aria-current="page" href="{% url 'account_login' %}">Log in</a>
                     </li>
-                </ul>
-                <!-- conditional span, only displayed if user is logged in -->
-                {% if user.is_autheticated %}
-                <span class="navbar-text">
-                   You are logged in as {{ user }}
-                </span>
-                {% endif %}
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <span class="navbar-text">
+                        You are logged in as {{ user }}
+                    </span>
+                    {% endif %}
             </div>
         </div>
     </nav>

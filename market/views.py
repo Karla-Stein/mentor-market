@@ -28,12 +28,15 @@ def profile_detail(request, slug):
     profile = get_object_or_404(queryset, slug=slug)
     time_slots = TimeSlot.objects.filter(mentor=profile, availability_status=0)
 
+    # To store date as key and slot objects as value
     grouped_by_date = {}
 
+    # Loop through open slots 
     for slot in time_slots:
         if slot.date not in grouped_by_date:
+            # Create empty list for date 
             grouped_by_date[slot.date] = []
-
+        # Add Time slot to the list 
         grouped_by_date[slot.date].append(slot)
 
     return render(

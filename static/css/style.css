@@ -49,6 +49,10 @@ body {
     margin-right: 0px;
 }
 
+.navbar-text{
+    color: white;
+}
+
 
 #about:hover{
     font-weight: bolder;
