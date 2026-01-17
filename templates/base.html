@@ -42,8 +42,9 @@
                     </li>
                     <!-- Code reused from walkthrough project and adjusted to fit this project -->
                     {% if user.is_authenticated %}
-                     <li class="nav-item">
-                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}" aria-current="page" href="{% url 'profile' %}">My Profile</a>
+                    <li class="nav-item">
+                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                            aria-current="page" href="{% url 'profile' %}">My Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == logout_url %}active{% endif %}"
@@ -63,6 +64,21 @@
             </div>
         </div>
     </nav>
+    <!-- displaying Django messages -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2" id="msg-container">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible
+                     fade show" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
     <main class="flex-shrink-0 main-bg">
         <div class="d-flex">
             {% if user.is_authenticated %}

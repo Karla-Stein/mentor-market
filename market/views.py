@@ -51,6 +51,16 @@ def profile_detail(request, slug):
 
 
 def set_mentor_profile(request):
+    """
+    Display a form to collect user data for profile set up.
+
+    Context:
+        profile_form:
+        An instance of the ProfileSetup form.
+
+    template: 
+        `market/profile_setup.html`
+    """
     profile_form = ProfileSetup()
     if request.method == "POST":
         profile_form = ProfileSetup(data=request.POST)
