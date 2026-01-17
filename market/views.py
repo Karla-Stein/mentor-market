@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Profile, TimeSlot
 from .forms import ProfileSetup
+from django.contrib import messages
 
 # Create your views here.
 
@@ -51,6 +52,18 @@ def profile_detail(request, slug):
 
 def set_mentor_profile(request):
     profile_form = ProfileSetup()
+    if request.method == "POST":
+        profile_form = ProfileSetup(data=request.POST)
+        if profile_form.is_valid():
+            profile = profile_form.save(commit=False)
+            profile.user = request.user
+            profile.save()
+
+    messages.add_message(
+        request,
+        messages.SUCCESS,
+        "Profile submitted and awaiting approval"
+    )
 
     return render(
         request,
