@@ -33,12 +33,12 @@ def profile_detail(request, slug):
     # To store date as key and slot objects as value
     grouped_by_date = {}
 
-    # Loop through open slots 
+    # Loop through open slots
     for slot in time_slots:
         if slot.date not in grouped_by_date:
-            # Create empty list for date 
+            # Create empty list for date
             grouped_by_date[slot.date] = []
-        # Add Time slot to the list 
+        # Add Time slot to the list
         grouped_by_date[slot.date].append(slot)
 
     return render(
@@ -58,7 +58,7 @@ def set_mentor_profile(request):
         profile_form:
         An instance of the ProfileSetup form.
 
-    template: 
+    template:
         `market/profile_setup.html`
     """
     profile_form = ProfileSetup()

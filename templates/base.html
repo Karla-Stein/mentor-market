@@ -80,8 +80,8 @@
         </div>
     </div>
     <main class="flex-shrink-0 main-bg">
+        {% if user.is_authenticated %}
         <div class="d-flex">
-            {% if user.is_authenticated %}
             <span class="ms-auto" id="login-confirm">
                 You are logged in as {{ user }}
             </span>

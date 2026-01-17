@@ -23,7 +23,7 @@ class Profile(models.Model):
 
     class Meta:
         ordering = ["-member_since"]  # newest Profile is displayed first
-         
+       
     def __str__(self):
         return f"Profile of {self.user}"
 
@@ -45,4 +45,3 @@ class TimeSlot(models.Model):
 
     def __str__(self):
         return f"{self.mentor.name} is available on {self.date} from {self.start_time} to {self.end_time}"  # noqa 501
-    
