@@ -1,10 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404 
 from django.views import generic
 from .models import Profile, TimeSlot
 from .forms import ProfileSetup
 from django.contrib import messages
-
-# Create your views here.
+from django.utils.text import slugify
 
 
 class ProfileList(generic.ListView):
@@ -67,12 +66,15 @@ def set_mentor_profile(request):
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
             profile.user = request.user
+            # sets slug to profile name
+            slug = slugify(profile.name)
+            profile.slug = slug
             profile.save()
 
     messages.add_message(
-        request,
-        messages.SUCCESS,
-        "Profile submitted and awaiting approval"
+       request,
+       messages.SUCCESS,
+       "Profile submitted and awaiting approval"
     )
 
     return render(
