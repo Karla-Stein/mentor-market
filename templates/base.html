@@ -2,6 +2,7 @@
 
 {% url 'home' as home_url %}
 {% url 'profile' as profile_url %}
+{% url 'availability' as availability_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -46,6 +47,12 @@
                         <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
                             aria-current="page" href="{% url 'profile' %}">My Profile</a>
                     </li>
+                    {% if user.mentor_profile.status == 1 %}
+                    <li class="nav-item">
+                        <a id="my-availability" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                            aria-current="page" href="{% url 'availability' %}">My Availability</a>
+                    </li>
+                    {% endif%}
                     <li class="nav-item">
                         <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == logout_url %}active{% endif %}"
                             aria-current="page" href="{% url 'account_logout' %}">Sign out</a>

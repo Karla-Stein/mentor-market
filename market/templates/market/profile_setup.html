@@ -12,6 +12,11 @@
             <form method="post">
                 {% csrf_token %}
                 {{ profile_form|crispy }}
+                <h2>Set your availability:</h2>
+                {{ availability_form.management_form }}
+                <div class="col-3 text-center" id="slot-forms">
+                    {{availability_form|crispy}} 
+                </div>
                 <button type="submit" class="btn btn-signup btn-primary nav-bar-btn">Submit</button>
             </form>
             {% endif %}

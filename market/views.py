@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404 
 from django.views import generic
 from .models import Profile, TimeSlot
-from .forms import ProfileSetup
+from .forms import ProfileSetup, AvailabilitySetup
 from django.contrib import messages
 from django.utils.text import slugify
 
@@ -66,16 +66,16 @@ def set_mentor_profile(request):
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
             profile.user = request.user
-            # sets slug to profile name
+            # set slug to profile name
             slug = slugify(profile.name)
             profile.slug = slug
             profile.save()
-
-    messages.add_message(
-       request,
-       messages.SUCCESS,
-       "Profile submitted and awaiting approval"
-    )
+                
+            messages.add_message(
+               request,
+               messages.SUCCESS,
+               "Profile submitted. Awaiting approval"
+            )
 
     return render(
         request,
@@ -83,3 +83,37 @@ def set_mentor_profile(request):
         {"profile_form": profile_form}
 
     )
+
+
+def set_mentor_availability(request):
+    """
+    Display a form to collect mentor availability, after Profile approval
+
+    Context:
+        availability_form:
+        An instance of the AvailabilitySetup form.
+
+    template:
+        `market/availability.html`
+    """
+    availability_form = AvailabilitySetup()
+    profile = get_object_or_404(Profile, user=request.user)
+    if request.method == "POST":
+        availability_form = AvailabilitySetup(data=request.POST)
+        if availability_form.is_valid():
+            availabilities = availability_form.save(commit=False)
+            availabilities.mentor = profile
+            availabilities.save()
+
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Availability successfully submitted"
+            )
+                
+    return render(
+        request,
+        "market/availability.html",
+        {"availability_form": availability_form}
+
+    )        
