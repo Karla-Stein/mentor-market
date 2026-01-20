@@ -7,4 +7,6 @@ urlpatterns = [
     path('availability/', views.set_mentor_availability, name="availability"),
     path('my-profile/', views.set_mentor_profile, name="profile"),
     path('<slug:slug>/', views.profile_detail, name='profile_detail'),
+    path('my-profile/edit_profile/<slug:slug>',
+         views.profile_edit, name='profile_edit'),
 ]

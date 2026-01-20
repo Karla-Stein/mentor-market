@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404 
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from .models import Profile, TimeSlot
 from .forms import ProfileSetup, AvailabilitySetup
 from django.contrib import messages
 from django.utils.text import slugify
+from django.http import HttpResponseRedirect
 
 
 class ProfileList(generic.ListView):
@@ -116,4 +117,27 @@ def set_mentor_availability(request):
         "market/availability.html",
         {"availability_form": availability_form}
 
-    )        
+    ) 
+
+
+def profile_edit(request, slug):
+    """
+    Update an existing profile (only if the logged-in user
+    is the owner of the profile).  
+    Redirect back to the profile_detail page afterwards.
+    """
+    queryset = Profile.objects.filter(status=1)
+    profile = get_object_or_404(queryset, slug=slug, user=request.user)
+    if request.method == "POST":
+        profile_form = ProfileSetup(data=request.POST, instance=profile)
+
+        if profile_form.is_valid():
+            updated_profile = profile_form.save(commit=False)
+            updated_profile.slug = slugify(updated_profile.name)
+            updated_profile.approved = False  # forces re-approval after edits
+            updated_profile.save()
+            messages.success(request, "Profile updated!")
+        else:
+            messages.error(request, "Error updating Profile.")
+
+    return HttpResponseRedirect(reverse("profile_detail", args=[slug]))    

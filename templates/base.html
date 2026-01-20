@@ -43,13 +43,21 @@
                     </li>
                     <!-- Code reused from walkthrough project and adjusted to fit this project -->
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
-                            aria-current="page" href="{% url 'profile' %}">My Profile</a>
-                    </li>
                     {% if user.mentor_profile.status == 1 %}
                     <li class="nav-item">
-                        <a id="my-availability" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                            aria-current="page" href="{% url 'profile_detail' user.mentor_profile.slug%}">My Profile</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                            aria-current="page" href="{% url 'profile'%}">My Profile</a>
+                    </li>
+                    {% endif %}
+                    {% if user.mentor_profile.status == 1 %}
+                    <li class="nav-item">
+                        <a id="my-availability"
+                            class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
                             aria-current="page" href="{% url 'availability' %}">My Availability</a>
                     </li>
                     {% endif%}
@@ -111,6 +119,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
     </script>
+
+    {% block extras %}
+    {% endblock %}
 
 </body>
 
