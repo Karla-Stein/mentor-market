@@ -41,7 +41,7 @@
                 {% if user.is_authenticated and user.mentor_profile.status == 1 and profile.user == user %}
                 <a type="button" class="btn btn-edit btn-primary me-5" href="{% url 'profile' %}">Edit
                     Profile</a>
-                <button type="button" class="btn btn-edit btn-primary delete">Delete
+                <button type="button" class="btn btn-edit btn-primary" id="delete">Delete
                     Profile</button>
                 {% endif %}
             </div>
@@ -70,8 +70,26 @@
         </div>
     </div>
 </section>
-
+<!-- Confirmation modal on delete -->
+<div class="modal" tabindex="-1" id="modalDelete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Profile Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>We are sad to see yo go! Are you sure you want to delete your Profile?</p>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-secondary" href="{% url 'profile_delete' profile.slug %}">Yes,
+                    Delete</a>
+                <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">No stay here</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock profile%}
 {% block extras %}
-<script src="{% static 'js/profiles.js' %}"></script>
+<script src="{% static 'js/profile_delete.js' %}"></script>
 {% endblock %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from .models import Profile, TimeSlot
 from .forms import ProfileSetup, AvailabilitySetup
@@ -67,22 +67,21 @@ def set_mentor_profile(request):
     profile_form = ProfileSetup(instance=profile)
 
     if request.method == "POST":
-        if request.user.mentor_profile:
-            profile_form = ProfileSetup(data=request.POST, instance=profile)
-            if profile_form.is_valid():
-                profile = profile_form.save(commit=False)
-                profile.status = 0
-                profile.user = request.user
-                # set slug to profile name
-                slug = slugify(profile.name)
-                profile.slug = slug
-                profile.save()
-
-                messages.add_message(
-                   request,
-                   messages.SUCCESS,
-                   "Profile edit submitted. Awaiting approval"
-                )
+        # if request.user.mentor_profile:
+        profile_form = ProfileSetup(data=request.POST, instance=profile)
+        if profile_form.is_valid():
+            profile = profile_form.save(commit=False)
+            profile.status = 0
+            profile.user = request.user
+            # set slug to profile name
+            slug = slugify(profile.name)
+            profile.slug = slug
+            profile.save()
+            messages.add_message(
+               request,
+               messages.SUCCESS,
+               "Profile edit submitted. Awaiting approval"
+            )
         else:
             profile_form = ProfileSetup(data=request.POST)
             if profile_form.is_valid():
@@ -139,3 +138,20 @@ def set_mentor_availability(request):
         {"availability_form": availability_form}
 
     ) 
+
+
+def profile_delete(request, slug):
+    queryset = Profile.objects.filter(status=1)
+    profile = get_object_or_404(queryset, slug=slug)
+   
+    if request.user == profile.user:
+        profile.delete()
+
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            "Profile successfully deleted"
+        )
+
+    return redirect("home")
+
