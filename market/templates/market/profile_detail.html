@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block profile%}
 
@@ -26,7 +27,23 @@
                 <hr>
                 <p>{{profile.bio}}</p>
                 <p>Skills: {{profile.specialism}}</p>
+                <p>Experince: {{profile.experience}}</p>
                 <p>Member since {{profile.member_since}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Edit and delete -->
+<section class="my-5" id="edit">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                {% if user.is_authenticated and user.mentor_profile.status == 1 and profile.user == user %}
+                <a type="button" class="btn btn-edit btn-primary me-5" href="{% url 'profile' %}">Edit
+                    Profile</a>
+                <button type="button" class="btn btn-edit btn-primary delete">Delete
+                    Profile</button>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -55,3 +72,6 @@
 </section>
 
 {% endblock profile%}
+{% block extras %}
+<script src="{% static 'js/profiles.js' %}"></script>
+{% endblock %}

@@ -1,10 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Profile, TimeSlot
 from .forms import ProfileSetup, AvailabilitySetup
 from django.contrib import messages
 from django.utils.text import slugify
-from django.http import HttpResponseRedirect
 
 
 class ProfileList(generic.ListView):
@@ -52,31 +51,53 @@ def profile_detail(request, slug):
 
 def set_mentor_profile(request):
     """
-    Display a form to collect user data for profile set up.
+    Display a form to collect user data for profile set up 
+    or to edit for approved profiles.
 
     Context:
+        profile:
+        Instance of model Profile,
         profile_form:
-        An instance of the ProfileSetup form.
+        An instance of the ProfileSetup form,
 
     template:
         `market/profile_setup.html`
     """
-    profile_form = ProfileSetup()
+    profile = Profile.objects.filter(user=request.user).first()
+    profile_form = ProfileSetup(instance=profile)
+
     if request.method == "POST":
-        profile_form = ProfileSetup(data=request.POST)
-        if profile_form.is_valid():
-            profile = profile_form.save(commit=False)
-            profile.user = request.user
-            # set slug to profile name
-            slug = slugify(profile.name)
-            profile.slug = slug
-            profile.save()
-                
-            messages.add_message(
-               request,
-               messages.SUCCESS,
-               "Profile submitted. Awaiting approval"
-            )
+        if request.user.mentor_profile:
+            profile_form = ProfileSetup(data=request.POST, instance=profile)
+            if profile_form.is_valid():
+                profile = profile_form.save(commit=False)
+                profile.status = 0
+                profile.user = request.user
+                # set slug to profile name
+                slug = slugify(profile.name)
+                profile.slug = slug
+                profile.save()
+
+                messages.add_message(
+                   request,
+                   messages.SUCCESS,
+                   "Profile edit submitted. Awaiting approval"
+                )
+        else:
+            profile_form = ProfileSetup(data=request.POST)
+            if profile_form.is_valid():
+                profile = profile_form.save(commit=False)
+                profile.user = request.user
+                # set slug to profile name
+                slug = slugify(profile.name)
+                profile.slug = slug
+                profile.save()
+
+                messages.add_message(
+                   request,
+                   messages.SUCCESS,
+                   "Profile submitted. Awaiting approval"
+                )
 
     return render(
         request,
@@ -118,26 +139,3 @@ def set_mentor_availability(request):
         {"availability_form": availability_form}
 
     ) 
-
-
-def profile_edit(request, slug):
-    """
-    Update an existing profile (only if the logged-in user
-    is the owner of the profile).  
-    Redirect back to the profile_detail page afterwards.
-    """
-    queryset = Profile.objects.filter(status=1)
-    profile = get_object_or_404(queryset, slug=slug, user=request.user)
-    if request.method == "POST":
-        profile_form = ProfileSetup(data=request.POST, instance=profile)
-
-        if profile_form.is_valid():
-            updated_profile = profile_form.save(commit=False)
-            updated_profile.slug = slugify(updated_profile.name)
-            updated_profile.approved = False  # forces re-approval after edits
-            updated_profile.save()
-            messages.success(request, "Profile updated!")
-        else:
-            messages.error(request, "Error updating Profile.")
-
-    return HttpResponseRedirect(reverse("profile_detail", args=[slug]))    
