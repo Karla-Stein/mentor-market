@@ -19,7 +19,7 @@ body {
     margin: 10px 20px;
 
 }
-
+/* Navbar */
 .brand {
     color: white;
     font-family: var(--primary-font);
@@ -61,7 +61,7 @@ body {
 #home:hover{
     font-weight: bolder;
 }
-
+/* Market */
 .card{
     border-radius: 20px;
 }
@@ -109,7 +109,7 @@ body {
 }
 
 #detailed-image{
-    border-radius: 20px;
+    border-radius: 20px;  
 }
 
 /* Media queries */

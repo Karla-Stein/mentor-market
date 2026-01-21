@@ -13,11 +13,18 @@
                 {% for profile in profile_list %}
                 <div class="col-sm-6 col-md-4 col-lg-3 d-flex my-4 justify-content-evenly">
                     <div class="card" id="mentor-card">
-                        <img id="profile-image" src="{% static 'images/nobody.jpg' %}" class="scale" alt="Profile picture">
+                        {% if "placeholder" in profile.featured_image.url %}
+                        <img id="placeholder-image" src="{% static 'images/nobody.jpg' %}" class="scale"
+                            alt="Placeholder Image">
+                        {% else %}
+                        <img id="profile-image" src="{{ profile.featured_image.url }}" class="scale"
+                            alt="Profile Image">
+                        {% endif %}
                         <div class="card-body text-center d-flex flex-column">
                             <h6 class="card-title text-muted ">Name: {{ profile.name }}</h6>
                             <p class="card-text">{{ profile.excerpt }}</p>
-                            <a href="{% url 'profile_detail' profile.slug %}" class="btn btn-primary mt-auto card-btn">Go to Profile</a>
+                            <a href="{% url 'profile_detail' profile.slug %}"
+                                class="btn btn-primary mt-auto card-btn">Go to Profile</a>
                         </div>
                     </div>
                 </div>
