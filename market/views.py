@@ -63,40 +63,23 @@ def set_mentor_profile(request):
     template:
         `market/profile_setup.html`
     """
-    profile = Profile.objects.filter(user=request.user).first()
-    profile_form = ProfileSetup(instance=profile)
+    profile_form = ProfileSetup()
 
     if request.method == "POST":
-        # if request.user.mentor_profile:
-        profile_form = ProfileSetup(data=request.POST, instance=profile)
+        profile_form = ProfileSetup(data=request.POST)
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
-            profile.status = 0
             profile.user = request.user
             # set slug to profile name
             slug = slugify(profile.name)
             profile.slug = slug
             profile.save()
+
             messages.add_message(
                request,
                messages.SUCCESS,
-               "Profile edit submitted. Awaiting approval"
+               "Profile submitted. Awaiting approval"
             )
-        else:
-            profile_form = ProfileSetup(data=request.POST)
-            if profile_form.is_valid():
-                profile = profile_form.save(commit=False)
-                profile.user = request.user
-                # set slug to profile name
-                slug = slugify(profile.name)
-                profile.slug = slug
-                profile.save()
-
-                messages.add_message(
-                   request,
-                   messages.SUCCESS,
-                   "Profile submitted. Awaiting approval"
-                )
 
     return render(
         request,
@@ -141,6 +124,10 @@ def set_mentor_availability(request):
 
 
 def profile_delete(request, slug):
+    """
+    Enable Mentor to delete their profile.
+    Redirects to homepage after modal confirmation.
+    """
     queryset = Profile.objects.filter(status=1)
     profile = get_object_or_404(queryset, slug=slug)
    
@@ -155,3 +142,41 @@ def profile_delete(request, slug):
 
     return redirect("home")
 
+
+def edit_profile(request):
+    """
+    Enable Mentor to edit their profile.
+    
+    Context:
+    profile_form:
+        An instance of the ProfileSetup form.
+
+    Template:
+        `market/profile_setup.html`
+
+    """
+    profile = Profile.objects.filter(user=request.user).first()
+    profile_form = ProfileSetup(instance=profile)
+
+    if request.method == "POST":
+        profile_form = ProfileSetup(data=request.POST, instance=profile)
+        if profile_form.is_valid():
+            profile = profile_form.save(commit=False)
+            profile.status = 0
+            profile.user = request.user
+            # set slug to profile name
+            slug = slugify(profile.name)
+            profile.slug = slug
+            profile.save()
+            messages.add_message(
+               request,
+               messages.SUCCESS,
+               "Profile edit submitted. Awaiting approval"
+            )
+
+    return render(
+        request,
+        "market/profile_setup.html",
+        {"profile_form": profile_form}
+
+    )
