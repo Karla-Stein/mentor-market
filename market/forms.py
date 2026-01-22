@@ -5,7 +5,8 @@ from .models import Profile, TimeSlot
 class ProfileSetup(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('name', 'excerpt', 'bio', 'experience', 'specialism')
+        fields = ('name', 'excerpt', 'bio', 'experience', 'specialism',
+                  'featured_image')
 
 
 class AvailabilitySetup(forms.ModelForm):

@@ -17,7 +17,6 @@ body {
     font-family: var(--secondary-font);
     color: white;
     margin: 10px 20px;
-
 }
 /* Navbar */
 .brand {
@@ -75,7 +74,9 @@ body {
 
 #profile-image{
     height: 220px;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 16px;
+    padding: 5px;
 }
 
 .card-btn{
@@ -110,6 +111,16 @@ body {
 
 #detailed-image{
     border-radius: 20px;  
+    object-fit: cover;
+    
+}
+
+#detailed-profile-image{
+    border-radius: 20px; 
+    object-fit: cover;
+    position: relative;
+    bottom: 2px;
+    right: 1px; 
 }
 
 /* Media queries */
@@ -122,6 +133,16 @@ body {
 
     .brand{
         margin-right: 0px;
+    }
+
+    #detailed-profile-image{
+        height: 256px;
+        width: 256px;  
+        padding-bottom: 10px;
+    }
+
+    .btn-edit{
+        margin-bottom: 10px;;
     }
 
 }
@@ -142,5 +163,24 @@ body {
        position: relative;
        top: 50px;
    }
+
+   #detailed-profile-image{
+        height: 290px;
+        width: 290px;  
+        padding-bottom: 10px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+     #skills{
+       position: relative;
+       top: 50px;
+   }
+
+   #detailed-profile-image{
+        height: 288px;
+        width: 288px;  
+    }
 
 }

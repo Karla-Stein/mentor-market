@@ -66,7 +66,7 @@ def set_mentor_profile(request):
     profile_form = ProfileSetup()
 
     if request.method == "POST":
-        profile_form = ProfileSetup(data=request.POST)
+        profile_form = ProfileSetup(request.POST, request.FILES)
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
             profile.user = request.user
@@ -120,7 +120,7 @@ def set_mentor_availability(request):
         "market/availability.html",
         {"availability_form": availability_form}
 
-    ) 
+    )
 
 
 def profile_delete(request, slug):
@@ -130,7 +130,7 @@ def profile_delete(request, slug):
     """
     queryset = Profile.objects.filter(status=1)
     profile = get_object_or_404(queryset, slug=slug)
-   
+ 
     if request.user == profile.user:
         profile.delete()
 
@@ -159,10 +159,10 @@ def edit_profile(request):
     profile_form = ProfileSetup(instance=profile)
 
     if request.method == "POST":
-        profile_form = ProfileSetup(data=request.POST, instance=profile)
+        profile_form = ProfileSetup(request.POST, request.FILES,
+                                    instance=profile)
         if profile_form.is_valid():
             profile = profile_form.save(commit=False)
-            profile.status = 0
             profile.user = request.user
             # set slug to profile name
             slug = slugify(profile.name)
@@ -171,7 +171,7 @@ def edit_profile(request):
             messages.add_message(
                request,
                messages.SUCCESS,
-               "Profile edit submitted. Awaiting approval"
+               "Profile edit successfully submitted"
             )
 
     return render(

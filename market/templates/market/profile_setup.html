@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load cloudinary %}
+
 
 
 {% block content %}
@@ -10,10 +12,10 @@
         <div class="col-md-8 mt-3 offset-md-2">
             {% if user.is_authenticated %}
             <h3 class="text-center"> What mentees should know about you:</h3>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ profile_form|crispy }}
-                <button type="submit" class="btn btn-signup btn-primary nav-bar-btn">Submit</button>
+                <button type="submit" class="btn btn-signup btn-primary nav-bar-btn" value="Upload">Submit</button>
             </form>
             {% endif %}
         </div>
