@@ -3,12 +3,17 @@
 {% load crispy_forms_tags %}
 
 {% block content%}
+<!-- set availability -->
 <section id="availability">
     <div class="container d-flex justify-content-center">
         <div class="row">
             <div class="col-12">
                 {% if user.is_authenticated %}
-                <h3 class="text-center"> Set your availability:</h3>
+                <h3 class="text-center">
+                    {% if slot %}
+                    Update your availability{% else %}Set your availability
+                    {% endif %}
+                </h3>
                 <form method="post">
                     {% csrf_token %}
                     {{ availability_form|crispy }}
@@ -20,5 +25,30 @@
         </div>
     </div>
 </section>
+<!-- Display avaiability -->
+<section id="avilability">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% for date, slots in grouped_by_date.items %}
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{date}}
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for slot in slots %}
+                        <!-- Enable edit function upon clicking the slot -->
+                        <li><a class="dropdown-item" href="{% url 'edit_availability' slot.id%}">{{slot.start_time}} -
+                                {{slot.end_time}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
 
 {% endblock content %}
