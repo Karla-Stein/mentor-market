@@ -18,6 +18,11 @@
                     {% csrf_token %}
                     {{ availability_form|crispy }}
                     <button type="submit" class="btn btn-signup btn-primary nav-bar-btn">Submit</button>
+                    {% if slot %}
+                    <!-- Button to activate modal to delete availability -->
+                    <button type="button" class="btn btn-secondary" id="delete-slot" data-slot-id="{{ slot.id }}">
+                        Delete</button>
+                    {% endif %}
                 </form>
                 {% endif %}
 
@@ -39,7 +44,7 @@
                     <ul class="dropdown-menu">
                         {% for slot in slots %}
                         <!-- Enable edit function upon clicking the slot -->
-                        <li><a class="dropdown-item" href="{% url 'edit_availability' slot.id%}">{{slot.start_time}} -
+                        <li><a class="dropdown-item" href="{% url 'edit_availability' slot.id %}">{{slot.start_time}} -
                                 {{slot.end_time}}</a></li>
                         {% endfor %}
                     </ul>
@@ -49,6 +54,28 @@
         </div>
     </div>
 </section>
+<!-- Confirmation modal on delete -->
+<div class="modal" tabindex="-1" id="modalDeleteAvailability">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete this slot</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this time slot?</p>
+            </div>
+            <div class="modal-footer">        
+                <a type="button" class="btn btn-secondary" href="#" id="availability-delete-confirm">Yes,
+                    Delete</a> 
+                <a type="button" class="btn btn-secondary" data-bs-dismiss="modal">Take me back</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 {% endblock content %}
+{% block extras %}
+<script src="{% static 'js/availability_delete.js' %}"></script>
+{% endblock %}

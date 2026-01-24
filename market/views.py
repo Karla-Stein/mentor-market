@@ -95,7 +95,7 @@ def set_mentor_availability(request):
     """
     Display a form to collect mentor availability, after Profile approval
     Display set availabilities.
-    
+
     Context:
         availability_form:
         An instance of the AvailabilitySetup form.
@@ -238,3 +238,20 @@ def edit_availability(request, pk):
         {"availability_form": availability_form,
          "slot": slot}
     )
+
+
+def delete_availability(request, pk):
+    profile = get_object_or_404(Profile, user=request.user)
+    slot = get_object_or_404(TimeSlot, pk=pk, mentor=profile)
+    slot.delete()
+
+    messages.add_message(
+               request,
+               messages.SUCCESS,
+               "Availability slot successfully deleted"
+           )
+    
+    return redirect("availability")
+
+
+

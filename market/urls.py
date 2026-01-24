@@ -5,6 +5,8 @@ from django.urls import path
 urlpatterns = [
     path('', views.ProfileList.as_view(), name='home'),
     path('availability/', views.set_mentor_availability, name="availability"),
+    path('delete-availability/<int:pk>', views.delete_availability,
+         name='delete_availability'),
     path('delete-profile/<slug:slug>/', views.profile_delete,
          name='profile_delete'),
     path('edit-availability/<int:pk>', views.edit_availability,
