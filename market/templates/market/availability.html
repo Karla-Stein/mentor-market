@@ -17,7 +17,7 @@
                 <form method="post">
                     {% csrf_token %}
                     {{ availability_form|crispy }}
-                    <button type="submit" class="btn btn-signup btn-primary nav-bar-btn">Submit</button>
+                    <button type="submit" class="btn btn-signup btn-primary nav-bar-btn">{% if slot %} Update {% else %} Submit {% endif %}</button>
                     {% if slot %}
                     <!-- Button to activate modal to delete availability -->
                     <button type="button" class="btn btn-secondary" id="delete-slot" data-slot-id="{{ slot.id }}">
@@ -34,7 +34,10 @@
 <section id="avilability">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
+                <hr class="divider">
+                <h2 class="my-4">Manage your availability</h2>
+                <p>Select your slot to update or delete your time slots</p>
                 {% for date, slots in grouped_by_date.items %}
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown"

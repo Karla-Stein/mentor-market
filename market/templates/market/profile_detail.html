@@ -30,7 +30,7 @@
             <div class="col-12">
                 <p>Name: {{profile.name}} </p>
                 <h3>{{profile.excerpt}}</h3>
-                <hr>
+                <hr class="divider">
                 <p>{{profile.bio}}</p>
                 <p>Skills: {{profile.specialism}}</p>
                 <p>Experince: {{profile.experience}}</p>
@@ -58,7 +58,11 @@
 <section id="avilability">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 text-center">
+                {% if not user.is_authenticated %}
+                <h2>Book your slot</h2>
+                <p>Please click a slot to enter your details and secure your booking</p>
+                {% endif %}
                 {% for date, slots in grouped_by_date.items %}
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown"
@@ -67,7 +71,7 @@
                     </button>
                     <ul class="dropdown-menu">
                         {% for slot in slots %}
-                        <li><a class="dropdown-item" href="#">{{slot.start_time}} - {{slot.end_time}}</a></li>
+                        <li><a class="dropdown-item" href="{% url 'book_a_slot_with' slot.id %}">{{slot.start_time}} - {{slot.end_time}}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

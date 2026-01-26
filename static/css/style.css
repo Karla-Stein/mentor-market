@@ -18,6 +18,11 @@ body {
     color: white;
     margin: 10px 20px;
 }
+
+.divider{
+    margin: 50px 0;
+}
+
 /* Navbar */
 .brand {
     color: white;
@@ -120,12 +125,11 @@ body {
     object-fit: cover;
     position: relative;
     bottom: 2px;
-    right: 1px; 
 }
 
 /* Media queries */
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 320px) {
     .navbar{
         border-radius: 30px;
         margin: 20px 6px;
@@ -179,8 +183,8 @@ body {
    }
 
    #detailed-profile-image{
-        height: 288px;
-        width: 288px;  
+        height: 300px;
+        width: 300px;  
     }
 
 }
