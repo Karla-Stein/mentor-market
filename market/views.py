@@ -124,6 +124,15 @@ def set_mentor_availability(request):
         availability_form = AvailabilitySetup(data=request.POST)
         if availability_form.is_valid():
             availabilities = availability_form.save(commit=False)
+            for slot in time_slots:
+                if availabilities.date == slot.date:
+                    if availabilities.start_time < slot.end_time or availabilities.end_time > slot.start_time:  # noqa 501
+                        messages.add_message(
+                            request,
+                            messages.ERROR,
+                            "Time overlep"
+                        )
+                        return redirect("availability")
             availabilities.mentor = profile
             availabilities.save()
 

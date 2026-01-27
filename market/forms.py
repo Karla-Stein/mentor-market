@@ -19,8 +19,8 @@ class AvailabilitySetup(forms.ModelForm):
                 attrs={'type': 'date', 'class': 'form-control'}
             ),
             'start_time': forms.TimeInput(
-                attrs={'type': 'time', 'class': 'form-control'}
+                attrs={'type': 'time', 'class': 'form-control', 'step': '3600'}
             ),
             'end_time': forms.TimeInput(
-                attrs={'type': 'time', 'class': 'form-control'}
+                attrs={'type': 'time', 'class': 'form-control', 'step': '3600'}
             )}
