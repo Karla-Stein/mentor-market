@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- My booking column -->
+        <div class="col-12 mt-3 left">
+            <div class="row">
+                {% for booking in booked_slots %}
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{booking.time_slot.date}}
+                    </button>
+                    <ul class="dropdown-menu">
+                        <!-- Enable edit function upon clicking the slot -->
+                        <li><a class="dropdown-item" href="#">{{booking.visitor_name}}</a></li>
+                        <li><a class="dropdown-item" href="#">{{booking.visitor_email}}</a></li>
+                    </ul>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

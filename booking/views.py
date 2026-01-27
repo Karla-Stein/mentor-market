@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from market.models import TimeSlot
-# from .models import Booking
+from market.models import TimeSlot, Profile
+from .models import Booking
 from .forms import VisitorBooking
 from django.contrib import messages
 
@@ -47,4 +47,27 @@ def book_a_slot(request, pk):
          "slot": slot
          }
 
+    )
+
+
+def booking_details(request):
+    """
+    View to list all bookings for request user.
+
+    Context:
+        booked_slots:
+        An Instance of all booking objects, that belong the requesting mentor.
+
+    Template:
+        "booking/booking_details.html"
+    """
+    profile = get_object_or_404(Profile, user=request.user)
+    # using reverse traversal to walk through relationships
+    booked_slots = Booking.objects.filter(time_slot__mentor=profile)
+  
+    return render(
+        request,
+        "booking/booking_details.html",
+        {"booked_slots": booked_slots,
+         }
     )
