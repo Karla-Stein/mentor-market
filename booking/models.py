@@ -3,6 +3,14 @@ from market.models import TimeSlot
 
 
 class Booking(models.Model):
+    """
+    A model to store visitor details for specific time slot.
+  
+    The booking model is also used to/as:
+        - prevent double bookings via oneToOne relationship with TimeSlot
+        - to render booked slots on the booking/booking.html for
+        logged in mentors.
+    """
     time_slot = models.OneToOneField(
         TimeSlot, on_delete=models.CASCADE, related_name="bookings"
     )

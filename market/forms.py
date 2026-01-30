@@ -3,6 +3,12 @@ from .models import Profile, TimeSlot
 
 
 class ProfileSetup(forms.ModelForm):
+    """
+    Form to collect Mentor details.
+    
+    Model:
+        Profile
+    """
     class Meta:
         model = Profile
         fields = ('name', 'excerpt', 'bio', 'experience', 'specialism',
@@ -10,6 +16,12 @@ class ProfileSetup(forms.ModelForm):
 
 
 class AvailabilitySetup(forms.ModelForm):
+    """
+    Form to collect Mentor availability.
+    
+    Model:
+        TimeSlot
+    """
     class Meta:
         model = TimeSlot
         fields = ('date', 'start_time', 'end_time')

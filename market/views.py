@@ -258,6 +258,10 @@ def edit_availability(request, pk):
 
 @login_required
 def delete_availability(request, pk):
+    """
+    Enable mentor to delete their set avaiability.
+    Redirect sends mentor back to the updated availability page.
+    """
     profile = get_object_or_404(Profile, user=request.user)
     slot = get_object_or_404(TimeSlot, pk=pk, mentor=profile)
     slot.delete()

@@ -5,10 +5,18 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
-# Create your models here.
-
 
 class Profile(models.Model):
+    """
+    Model to store mentor details.
+
+    Each profile is linked to the allAuth user via OneToOne relationship and
+    used to/as:
+     - publicly display mentor profiles.
+     - display profile on mentor detail page.
+     - collect data through ProfileSetup Form
+     - parent model to TimeSlot model
+    """
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="mentor_profile"
     )
@@ -25,7 +33,7 @@ class Profile(models.Model):
 
     class Meta:
         ordering = ["-member_since"]  # newest Profile is displayed first
-       
+        
     def __str__(self):
         return f"Profile of {self.user}"
 
@@ -34,6 +42,16 @@ AVAILABILITY_STATUS = ((0, "Open"), (1, "Booked"))
 
 
 class TimeSlot(models.Model):
+    """
+    Model to store mentor availability. Where mentor, date, start and end time 
+    are unique together meaning in combination they can only exist
+    once and prevent duplicate availability slots.
+
+    TimeSlot is also used to/as:
+        - display available slots on mentor profile
+        - collect data through AvailabilitySetup form
+        - a parent model to the Booking model.
+    """
     mentor = models.ForeignKey(
         Profile, on_delete=models.CASCADE, related_name="availability"
     )
