@@ -4,6 +4,7 @@ from .models import Profile, TimeSlot
 from .forms import ProfileSetup, AvailabilitySetup
 from django.contrib import messages
 from django.utils.text import slugify
+from django.contrib.auth.decorators import login_required
 
 
 class ProfileList(generic.ListView):
@@ -51,6 +52,7 @@ def profile_detail(request, slug):
     )
 
 
+@login_required
 def set_mentor_profile(request):
     """
     Display a form to collect user data for profile set up
@@ -91,6 +93,7 @@ def set_mentor_profile(request):
     )
 
 
+@login_required
 def set_mentor_availability(request):
     """
     Display a form to collect mentor availability, after Profile approval
@@ -124,20 +127,21 @@ def set_mentor_availability(request):
         availability_form = AvailabilitySetup(data=request.POST)
         if availability_form.is_valid():
             availabilities = availability_form.save(commit=False)
+            # prevent time overlap
             for slot in time_slots:
                 if availabilities.date == slot.date:
                     if availabilities.start_time < slot.end_time or availabilities.end_time > slot.start_time:  # noqa 501
                         messages.add_message(
                             request,
                             messages.ERROR,
-                            "Time overlep"
+                            "Time overlap"
                         )
                         return redirect("availability")
             availabilities.mentor = profile
             availabilities.save()
 
             return redirect("availability")
-                
+                       
     return render(
         request,
         "market/availability.html",
@@ -148,6 +152,7 @@ def set_mentor_availability(request):
     )
 
 
+@login_required
 def profile_delete(request, slug):
     """
     Enable Mentor to delete their profile.
@@ -168,10 +173,11 @@ def profile_delete(request, slug):
     return redirect("home")
 
 
+@login_required
 def edit_profile(request):
     """
     Enable Mentor to edit their profile.
-  
+
     Context:
     profile_form:
         An instance of the ProfileSetup form.
@@ -207,6 +213,7 @@ def edit_profile(request):
     )
 
 
+@login_required
 def edit_availability(request, pk):
     """
     View to edit available slots
@@ -249,6 +256,7 @@ def edit_availability(request, pk):
     )
 
 
+@login_required
 def delete_availability(request, pk):
     profile = get_object_or_404(Profile, user=request.user)
     slot = get_object_or_404(TimeSlot, pk=pk, mentor=profile)
@@ -259,8 +267,4 @@ def delete_availability(request, pk):
                messages.SUCCESS,
                "Availability slot successfully deleted"
            )
-    
     return redirect("availability")
-
-
-
