@@ -1,9 +1,23 @@
 {% extends "base.html" %}
 {% load static %}
-{% load cloudinary %}      
+{% load cloudinary %}
 
 {% block profile %}
-
+<!-- hero section -->
+<section id="hero" class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 id="hero-title" class="display-2">
+                    <strong>Mentor Market</strong>
+                </h2>
+                <div id="hero-sub">
+                    <p> Where real guidance meets real people.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- index.html content starts here, code institute code reused and adjusted-->
 <div class="container">
     <div class="row">
@@ -51,6 +65,62 @@
     </nav>
     {% endif %}
 </div>
+<!-- About section -->
+<section id="about" class="divider">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="my-4">About Mentor Market:</h2>
+                <p>
+                    Mentor Market connects aspiring developers with experienced coding mentors.
+                </p>
+                <p>
+                    Learning to code can feel overwhelming — especially when you don’t know who to ask.
+                    Mentor Market was created to give you direct access to real developers who have already
+                    navigated the challenges you are facing.
+                </p>
+                <p>
+                    Instead of generic tutorials or endless forums, you can speak to someone who understands
+                    your goals, your blockers, and your journey into tech.
+                </p>
+                <p>
+                    Mentors share their expertise, set their availability and offer 1:1 guidance.
+                    Visitors can explore profiles, choose a time slot, and book a session with ease.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- How to section -->
+<section id="how-to">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="my-4">How Mentor Market works:</h3>
+                <div class="row justify-content-center">
+                    <div class="col-12 mb-4 visitor-div">
+                        <h5>For Visitors</h5>
+                        <p>
+                            1. Browse mentor profiles and find someone who matches your goals.<br>
+                            2. View their available time slots.<br>
+                            3. Select a slot and submit your booking request.<br>
+                            4. Receive confirmation and get connected with your Mentor.
+                        </p>
+                    </div>
+                    <div class="row justify-content-center">
+                    <div class="col-12 mb-4 mentor-div">
+                        <h5>For Mentors</h5>
+                        <p> 1. Sign up.
+                            2. Create and submit your mentor profile.<br>
+                            3. Set your availability by choosing dates and time slots.<br>
+                            4. Review booking requests from visitors.<br>
+                            5. Confirm sessions, contact your Mentee and manage your bookings in one place.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+</section>
 
 <!-- index.html content ends here -->
 {% endblock %}

@@ -33,7 +33,7 @@ class Profile(models.Model):
 
     class Meta:
         ordering = ["-member_since"]  # newest Profile is displayed first
-        
+
     def __str__(self):
         return f"Profile of {self.user}"
 
@@ -43,7 +43,7 @@ AVAILABILITY_STATUS = ((0, "Open"), (1, "Booked"))
 
 class TimeSlot(models.Model):
     """
-    Model to store mentor availability. Where mentor, date, start and end time 
+    Model to store mentor availability. Where mentor, date, start and end time
     are unique together meaning in combination they can only exist
     once and prevent duplicate availability slots.
 

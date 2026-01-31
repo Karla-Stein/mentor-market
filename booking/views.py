@@ -64,7 +64,7 @@ def booking_details(request):
     profile = get_object_or_404(Profile, user=request.user)
     # using reverse traversal to walk through relationships
     booked_slots = Booking.objects.filter(time_slot__mentor=profile)
-  
+
     return render(
         request,
         "booking/booking_details.html",

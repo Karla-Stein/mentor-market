@@ -141,7 +141,7 @@ def set_mentor_availability(request):
             availabilities.save()
 
             return redirect("availability")
-                       
+        
     return render(
         request,
         "market/availability.html",

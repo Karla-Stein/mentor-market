@@ -5,7 +5,6 @@ from .models import Profile, TimeSlot
 class ProfileSetup(forms.ModelForm):
     """
     Form to collect Mentor details.
-    
     Model:
         Profile
     """
@@ -18,14 +17,13 @@ class ProfileSetup(forms.ModelForm):
 class AvailabilitySetup(forms.ModelForm):
     """
     Form to collect Mentor availability.
-    
     Model:
         TimeSlot
     """
     class Meta:
         model = TimeSlot
         fields = ('date', 'start_time', 'end_time')
-        # Add date and time picker 
+        # Add date and time picker
         widgets = {
             'date': forms.DateInput(
                 attrs={'type': 'date', 'class': 'form-control'}

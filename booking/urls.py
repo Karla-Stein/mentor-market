@@ -8,4 +8,3 @@ urlpatterns = [
     path('my-booking-details/', views.booking_details,
          name='booking_details'),
 ]
-
