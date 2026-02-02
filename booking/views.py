@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from market.models import TimeSlot, Profile
 from .models import Booking
 from .forms import VisitorBooking
@@ -36,9 +36,12 @@ def book_a_slot(request, pk):
             messages.add_message(
                request,
                messages.SUCCESS,
-               f"Booking request for {slot.mentor.name} on {slot.date} at "
-               f"{slot.start_time} received."
+               f"Booking request for {slot.date} at "
+               f"{slot.start_time} received. Please allow 24H for "
+               f"{slot.mentor.name} to contact you via provided email. "
             )
+
+            return redirect("home")
 
     return render(
         request,
