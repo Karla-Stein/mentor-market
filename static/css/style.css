@@ -100,6 +100,7 @@ body {
     color: var(--accent-color);
 }
 
+
 #login-confirm{
     color: var(--primaty-text-color);
 }
@@ -224,14 +225,26 @@ body {
     padding: 20px 20px;
 }
 
+/* Footer */
+#footer{
+    background-color: var(--secondary-text-color);
+    color: var(--secondary-accent);
+    margin-top: 50px;
+}
+
 /* Media queries */
 
 @media screen and (max-width: 320px) {
-    .navbar{
-        border-radius: 30px;
-        margin: 20px 6px;
+    .navbar-toggler{
+        position: relative;
+        left: 200px;
+        bottom: 40px;
     }
 
+    .navbar{
+        height: 50px;
+    }
+    
     .brand{
         margin-right: 0px;
     }
