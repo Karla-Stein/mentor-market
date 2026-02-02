@@ -130,7 +130,7 @@ def set_mentor_availability(request):
             # prevent time overlap
             for slot in time_slots:
                 if availabilities.date == slot.date:
-                    if availabilities.start_time < slot.end_time or availabilities.end_time > slot.start_time:  # noqa 501
+                    if availabilities.start_time < slot.end_time and availabilities.end_time > slot.start_time:  # noqa 501
                         messages.add_message(
                             request,
                             messages.ERROR,
@@ -139,6 +139,14 @@ def set_mentor_availability(request):
                         return redirect("availability")
             availabilities.mentor = profile
             availabilities.save()
+
+            if availabilities.date == slot.date:
+
+                messages.add_message(
+                    request,
+                    messages.SUCCESS,
+                    "Slot succesfully added"
+                )
 
             return redirect("availability")
         
