@@ -137,19 +137,18 @@ def set_mentor_availability(request):
                             "Time overlap"
                         )
                         return redirect("availability")
+                
             availabilities.mentor = profile
             availabilities.save()
 
-            if availabilities.date == slot.date:
-
-                messages.add_message(
-                    request,
-                    messages.SUCCESS,
-                    "Slot succesfully added"
-                )
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                "Slot succesfully added"
+            )
 
             return redirect("availability")
-        
+      
     return render(
         request,
         "market/availability.html",

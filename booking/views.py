@@ -66,7 +66,7 @@ def booking_details(request):
     """
     profile = get_object_or_404(Profile, user=request.user)
     # using reverse traversal to walk through relationships
-    booked_slots = Booking.objects.filter(time_slot__mentor=profile)
+    booked_slots = Booking.objects.filter(time_slot__mentor=profile).order_by("time_slot__date", "time_slot__start_time")  # noqa 501
 
     return render(
         request,

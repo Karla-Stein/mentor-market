@@ -7,22 +7,26 @@
         <!-- My booking column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                {% for booking in booked_slots %}
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        {{booking.time_slot.date}}
-                    </button>
-                    <ul class="dropdown-menu">
-                        <!-- Enable edit function upon clicking the slot -->
-                        <li><a class="dropdown-item" href="#">{{booking.visitor_name}}</a></li>
-                        <li><a class="dropdown-item" href="#">{{booking.visitor_email}}</a></li>
-                        <li><a class="dropdown-item" href="#">{{booking.visitor_phone}}</a></li>
-                    </ul>
-                </div>
-                {% endfor %}
-
-
+                {% if booked_slots%}
+                    {% for booking in booked_slots %}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            {{booking.time_slot.date}}
+                        </button>
+                        <ul class="dropdown-menu">
+                            <!-- Enable edit function upon clicking the slot -->
+                            <li><a class="dropdown-item" href="#">{{booking.visitor_name}}</a></li>
+                            <li><a class="dropdown-item" href="#">{{booking.visitor_email}}</a></li>
+                            <li><a class="dropdown-item" href="#">{{booking.visitor_phone}}</a></li>
+                            <li><a class="dropdown-item" href="#">From: {{booking.time_slot.start_time}}</a></li>
+                            <li><a class="dropdown-item" href="#">To: {{booking.time_slot.end_time}}</a></li>
+                        </ul>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                <p>Relax! There are no bookings at the current time.</p>
+                {% endif %}
             </div>
         </div>
     </div>
