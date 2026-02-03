@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex justify-content-center" id="intro">
-                <h2></h2>
+                <h2 id="hidden">.</h2>
                 <div class="card" style="width: 18rem;">
                     {% if "placeholder" in profile.featured_image.url %}
                     <img id="detailed-image" src="{% static 'images/nobody.jpg' %}" class="card-img-top"
@@ -47,7 +47,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h2></h2>
+                <h2 id="hidden">.</h2>
                 {% if user.is_authenticated and user.mentor_profile.status == 1 and profile.user == user %}
                 <a class="btn btn-edit btn-primary me-5" href="{% url 'edit_profile' %}">Edit
                     Profile</a>
@@ -96,7 +96,7 @@
                 <p>We are sad to see yo go! Are you sure you want to delete your Profile?</p>
             </div>
             <div class="modal-footer">
-                <a type="button" class="btn btn-secondary" href="{% url 'profile_delete' profile.slug %}">Yes,
+                <a class="btn btn-secondary" href="{% url 'profile_delete' profile.slug %}">Yes,
                     Delete</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No stay here</button>
             </div>

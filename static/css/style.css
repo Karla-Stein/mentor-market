@@ -45,6 +45,9 @@ button.dropdown-toggle{
     width: 134px;
 }
 
+#hidden{
+    display: none;
+}
 /* Hero section */
 #hero-title{
     color: var(--primaty-text-color);
@@ -148,7 +151,7 @@ button.dropdown-toggle{
 img .profile-image{
     height: 220px;
     object-fit: cover;
-    border-radius: 20px !important;
+    border-radius: 20px;
 }
 
 .card-btn{

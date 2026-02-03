@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from market.models import TimeSlot, Profile
+from django.contrib.auth.decorators import login_required
 from .models import Booking
 from .forms import VisitorBooking
 
@@ -52,6 +53,7 @@ def book_a_slot(request, pk):
     )
 
 
+@login_required
 def booking_details(request):
     """
     View to list all bookings for request user.
