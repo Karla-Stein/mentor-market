@@ -8,14 +8,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 class Profile(models.Model):
     """
-    Model to store mentor details.
-
-    Each profile is linked to the allAuth user via OneToOne relationship and
-    used to/as:
-     - publicly display mentor profiles.
-     - display profile on mentor detail page.
-     - collect data through ProfileSetup Form
-     - parent model to TimeSlot model
+    Model to store mentor details. :model: `auth.User`.
     """
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="mentor_profile"
@@ -46,11 +39,7 @@ class TimeSlot(models.Model):
     Model to store mentor availability. Where mentor, date, start and end time
     are unique together meaning in combination they can only exist
     once and prevent duplicate availability slots.
-
-    TimeSlot is also used to/as:
-        - display available slots on mentor profile
-        - collect data through AvailabilitySetup form
-        - a parent model to the Booking model.
+    Related to :model: `Profile`'
     """
     mentor = models.ForeignKey(
         Profile, on_delete=models.CASCADE, related_name="availability"

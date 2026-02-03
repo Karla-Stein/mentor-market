@@ -6,8 +6,8 @@ class VisitorBooking(forms.ModelForm):
     """
     Form to collect visitor data upon booking.
 
-    Model:
-        Booking
+    **Model:**
+        `booking.Booking`.
     """
     class Meta:
         model = Booking

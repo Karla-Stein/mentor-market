@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a id="home" class="nav-link {% if request.path == home_url %} active {% endif %} mx-2"
+                        <a id="home" class="nav-link mx-2 {% if request.path == home_url %} active {% endif %} "
                             aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
@@ -45,37 +45,37 @@
                     {% if user.is_authenticated %}
                     {% if user.mentor_profile.status == 1 %}
                     <li class="nav-item">
-                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active {% endif %}"
                             aria-current="page" href="{% url 'profile_detail' user.mentor_profile.slug%}">My Profile</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                        <a id="my-profile" class="nav-link mx-2 {% if request.path == profile_url %}active {% endif %}"
                             aria-current="page" href="{% url 'profile'%}">My Profile</a>
                     </li>
                     {% endif %}
                     {% if user.mentor_profile.status == 1 %}
                     <li class="nav-item">
                         <a id="my-availability"
-                            class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                            class="nav-link mx-2 {% if request.path == profile_url %}active {% endif %}"
                             aria-current="page" href="{% url 'availability' %}">My Availability</a>
                     </li>
                     <li class="nav-item">
-                        <a id="my-booking" class="nav-link mx-2 {% if request.path == profile_url %}active{% endif %}"
+                        <a id="my-booking" class="nav-link mx-2 {% if request.path == profile_url %}active {% endif %}"
                             aria-current="page" href="{% url 'booking_details' %}">My Bookings</a>
                     </li>
                     {% endif%}
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == logout_url %}active{% endif %}"
+                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == logout_url %}active {% endif %}"
                             aria-current="page" href="{% url 'account_logout' %}">Sign out</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == signup_url %}active{% endif %}"
+                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == signup_url %}active {% endif %}"
                             aria-current="page" href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == login_url %}active{% endif %}"
+                        <a class="btn btn-primary nav-bar-btn mx-2 {% if request.path == login_url %}active {% endif %}"
                             aria-current="page" href="{% url 'account_login' %}">Sign in</a>
                     </li>
                     {% endif %}

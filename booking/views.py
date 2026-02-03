@@ -1,24 +1,23 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 from market.models import TimeSlot, Profile
 from .models import Booking
 from .forms import VisitorBooking
-from django.contrib import messages
 
 
 def book_a_slot(request, pk):
     """
     View to receive a booking and update the booking status
 
-    Context:
-        slot:
-        An instance of of an available timeslot, identified by the pk of the
-        slot that was clicked by the visitor
+    **Context:**
+    ``slot:``
+        An instance of of :model: `market.TimeSlot`.
 
-        booking_form:
-        An instance of the VisitorBooking Form, tied to the booking model
+    ``booking_form:``
+        An instance of :form: `booking.VisitorBooking`.
 
-    Template:
-        'booking/booking.html'
+    **Template:**
+    ``template: 'booking/booking.html'.
     """
     slot = get_object_or_404(TimeSlot, pk=pk, availability_status=0)
     booking_form = VisitorBooking()
@@ -57,12 +56,12 @@ def booking_details(request):
     """
     View to list all bookings for request user.
 
-    Context:
-        booked_slots:
-        An Instance of all booking objects, that belong the requesting mentor.
+    **Context:**
+    ``booked_slots:``
+        An Instance of :model: `booking.Booking`.
 
-    Template:
-        "booking/booking_details.html"
+    **Template:**
+    :template:  `booking/booking_details.html`.
     """
     profile = get_object_or_404(Profile, user=request.user)
     # using reverse traversal to walk through relationships

@@ -1,10 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
-from .models import Profile, TimeSlot
-from .forms import ProfileSetup, AvailabilitySetup
 from django.contrib import messages
 from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
+from .models import Profile, TimeSlot
+from .forms import ProfileSetup, AvailabilitySetup
 
 
 def redirectPNF(request, exception):
@@ -66,14 +66,14 @@ def set_mentor_profile(request):
     Display a form to collect user data for profile set up
     or to edit for approved profiles.
 
-    Context:
-        profile:
-        Instance of model Profile,
-        profile_form:
-        An instance of the ProfileSetup form,
+    **Context:**
+    ``profile:``
+        Instance of :model: `market.Profile`.
+    ``profile_form:``
+        An instance of :form: `market.ProfileSetup form`.
 
-    template:
-        `market/profile_setup.html`
+    **template:**
+    :template: `market/profile_setup.html`
     """
     profile_form = ProfileSetup()
 
@@ -107,12 +107,16 @@ def set_mentor_availability(request):
     Display a form to collect mentor availability, after Profile approval
     Display set availabilities.
 
-    Context:
-        availability_form:
-        An instance of the AvailabilitySetup form.
+    **Context:**
+    ``availability_form:``
+        An instance of the :form: `market.AvailabilitySetup`.
+    ``profile``:
+        An instance of :model: `market.Profile`.
+    ``time_slot``:
+    An instance of :model: `market.TimeSlot`.
 
-    template:
-        `market/availability.html`
+    **Template:**
+    :template: `market/availability.html`
     """
     availability_form = AvailabilitySetup()
     profile = get_object_or_404(Profile, user=request.user)
@@ -172,6 +176,13 @@ def profile_delete(request, slug):
     """
     Enable Mentor to delete their profile.
     Redirects to homepage after modal confirmation.
+
+    **Context**:
+    ``profile``:
+        An instance of :model: `market.Profile`.
+
+    **Redirect**
+    :template: `market.index.html`.
     """
     queryset = Profile.objects.filter(status=1)
     profile = get_object_or_404(queryset, slug=slug)
@@ -193,12 +204,12 @@ def edit_profile(request):
     """
     Enable Mentor to edit their profile.
 
-    Context:
-    profile_form:
-        An instance of the ProfileSetup form.
+    **Context:**
+    ``profile_form:``
+        An instance of :form: `market.ProfileSetup`.
 
-    Template:
-        `market/profile_setup.html`
+    **Template:**
+    :template: `market/profile_setup.html`
 
     """
     profile = Profile.objects.filter(user=request.user).first()
@@ -233,17 +244,17 @@ def edit_availability(request, pk):
     """
     View to edit available slots
 
-    Context:
-    profile:
-        An instance of the Profile model.
-    slot:
-        An instance of a timeslot identified by pk and mentor profile.
-    availability_form:
-        An instance of the availability set up form
+    **Context:**
+    ``profile:``
+        An instance of :model: `market.Profile`.
+    ``slot:``
+        An instance of :model: `market.TimeSlot`.
+    ``availability_form:``
+        An instance of :form: `market.AvailabilitySetup`.
         prepopulated with selected slot.
 
-    Template:
-        `market/availability.html`
+    **Template:**
+     :template: `market/availability.html`
     """
     profile = get_object_or_404(Profile, user=request.user)
     slot = get_object_or_404(TimeSlot, pk=pk, mentor=profile)
@@ -276,6 +287,15 @@ def delete_availability(request, pk):
     """
     Enable mentor to delete their set avaiability.
     Redirect sends mentor back to the updated availability page.
+
+    **Context**:
+    ``profile``:
+        An instance of :model: `market.Profile`.
+    ``slot``:
+        An instance of :model: `market.TimeSlot`.
+
+    **Redirect**
+    :template: `market.availability.html`.
     """
     profile = get_object_or_404(Profile, user=request.user)
     slot = get_object_or_404(TimeSlot, pk=pk, mentor=profile)
