@@ -10,12 +10,12 @@
             <div class="col-12 text-center">
                 <h2 id="hero-title" class="display-2">
                     <strong>Where Real Guidance Meets</strong>
-                    <div id="hero-sub">
-                        <strong> Real People</strong>
-                    </div>
                 </h2>
+                <div id="hero-sub" class="display-2">
+                    <strong> Real People</strong>
+                </div>
                 <p id="hero-p">Connect with experienced professionals who understand your journey.<br>
-                     Get personalized mentorship to accelerate your career growth.
+                    Get personalized mentorship to accelerate your career growth.
                 </p>
             </div>
         </div>
@@ -30,13 +30,11 @@
             <div class="row">
                 {% for profile in profile_list %}
                 <div class="col-sm-6 col-md-4 col-lg-3 d-flex my-4 justify-content-evenly">
-                    <div class="card" id="mentor-card">
+                    <div class="card mentor-card">
                         {% if "placeholder" in profile.featured_image.url %}
-                        <img id="placeholder-image" src="{% static 'images/nobody.jpg' %}" class="scale"
-                            alt="Placeholder Image">
+                        <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="Placeholder Image">
                         {% else %}
-                        <img id="profile-image" src="{{ profile.featured_image.url }}" class="scale"
-                            alt="Profile Image">
+                        <img src="{{ profile.featured_image.url }}" class="profile-image" alt="Profile Image">
                         {% endif %}
                         <div class="card-body text-center d-flex flex-column">
                             <h6 class="card-title text-muted ">Name: {{ profile.name }}</h6>
@@ -99,30 +97,32 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 text-center">
-                <h2 class="my-4">How Mentor Market works:</h3>
-                    <div class="row justify-content-center">
-                        <div class="col-12 mb-4 visitor-div">
-                            <h5>For Visitors</h5>
-                            <p>1. Browse mentor profiles and find someone who matches your goals.</p>
-                            <p> 2. View their available time slots.</p>
-                            <p> 3. Select a slot and submit your booking request.</p>
-                            <p> 4. Receive confirmation and get connected with your Mentor.</p>
-                        </div>
-                        <div class="col-12 text-center">
-                            <div class="row justify-content-center">
-                                <div class="col-12 mb-4 mentor-div">
-                                    <h5>For Mentors</h5>
-                                    <p> 1. Sign up.</p>
-                                    <p> 2. Create and submit your mentor profile.</p>
-                                    <p> 3. Set your availability by choosing dates and time slots.</p>
-                                    <p> 4. Review booking requests from visitors.</p>
-                                    <p> 5. Confirm sessions, contact your Mentee and manage your bookings in one place.
-                                    </p>
-                                </div>
+                <h2 class="my-4">How Mentor Market works:</h2>
+                <div class="row justify-content-center">
+                    <div class="col-12 mb-4 visitor-div">
+                        <h3>For Visitors</h3>
+                        <p>1. Browse mentor profiles and find someone who matches your goals.</p>
+                        <p> 2. View their available time slots.</p>
+                        <p> 3. Select a slot and submit your booking request.</p>
+                        <p> 4. Receive confirmation and get connected with your Mentor.</p>
+                    </div>
+                    <div class="col-12 text-center">
+                        <div class="row justify-content-center">
+                            <div class="col-12 mb-4 mentor-div">
+                                <h3>For Mentors</h3>
+                                <p> 1. Sign up.</p>
+                                <p> 2. Create and submit your mentor profile.</p>
+                                <p> 3. Set your availability by choosing dates and time slots.</p>
+                                <p> 4. Review booking requests from visitors.</p>
+                                <p> 5. Confirm sessions, contact your Mentee and manage your bookings in one place.
+                                </p>
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
+        </div>
+    </div>
 </section>
 
 <!-- index.html content ends here -->

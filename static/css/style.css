@@ -130,25 +130,25 @@ button.dropdown-toggle{
 
 /* Market */
 .card{
-    border-radius: 20px;
+    border-radius: 16px;
     border: var(--secondary-text-color) solid 1px;
     box-shadow:
     0 4px 12px rgba(0,0,0,0.25);
 
 }
 
-#mentor-card {
+.mentor-card {
     max-width: 280px;
     margin: 0 auto; /* centers cards */
     border-radius: 16px;
     overflow: hidden;
 }
 
-#profile-image{
+
+img .profile-image{
     height: 220px;
     object-fit: cover;
-    border-radius: 16px;
-    padding: 5px;
+    border-radius: 20px !important;
 }
 
 .card-btn{
