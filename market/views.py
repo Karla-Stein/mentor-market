@@ -7,6 +7,14 @@ from django.utils.text import slugify
 from django.contrib.auth.decorators import login_required
 
 
+def redirectPNF(request, exception):
+    """
+    404 handler.
+    Redirects the user to the home page in case of broken or non existing urls
+    """
+    return redirect('home')
+
+
 class ProfileList(generic.ListView):
     queryset = Profile.objects.filter(status=1).order_by("-member_since")
     template_name = "market/index.html"
