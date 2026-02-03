@@ -45,7 +45,7 @@ button.dropdown-toggle{
     width: 134px;
 }
 
-#hidden{
+.hidden{
     display: none;
 }
 /* Hero section */
