@@ -41,6 +41,10 @@ body {
     color: var(--primaty-text-color)
 }
 
+button.dropdown-toggle{
+    width: 134px;
+}
+
 /* Hero section */
 #hero-title{
     color: var(--primaty-text-color);
@@ -61,6 +65,14 @@ body {
 
 
 /* Navbar */
+
+.navbar-collapse {
+    position: relative;
+    top: 5px;
+    z-index: 3;
+    background-color: var(--primary-color);
+}
+
 .brand {
     color: var(--primaty-text-color);
     font-family: var(--primary-font);
