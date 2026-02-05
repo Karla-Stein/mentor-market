@@ -157,4 +157,20 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 
 
- 
+
+ ## User Stories
+
+ | Target | Expectation | Outcome |
+| --- | --- | --- |
+| As a visitor |  I can scroll through a feed of approved Mentor cards | so that I can quickly find a suitable Mentor.|
+| As a visitor | I can view a Mentor's detailed profile | so that I can decide whether to book with them.|
+| As a visitor | I can book an available slot by submitting my details | so that I can schedule a mentoring session.|
+| As the platform | I can prevent the same slot being booked by more than one person | so that schedules stay accurate.|
+| As a mentor | I can create an account  | so that I can apply to be listed on the platform.|
+| As a mentor | I can log in and log out | so that I can mange my profile and available slots securely. |
+| As a mentor | I can create and edit my profile | so that I can offer my mentoring to clients. |
+| As a mentor |  I can alter my profile | so that I can update or delete my offering. |
+| As a mentor | I can add slots that are available on the hour | so that visitors can book time with me. |
+| As a mentor | I can edit my availability | so that I can correct times or update my schedule. |
+| As a mentor | I can delete an unbooked slot | so that I can remove availability I no longer want to offer. |
+| As a mentor | I can view my upcoming bookings | so that I know who I am meeting and when. |
