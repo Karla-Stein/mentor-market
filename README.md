@@ -141,6 +141,19 @@ I used [figma.com](https://www.figma.com/) to generate my color palette.
 - [Font Awesome](https://fontawesome.com) icons was used for the GitHub icon in the footer.
 
 
+## Wireframes
+
+To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
+I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
+
+| Page | Mobile | Tablet | Desktop |
+| --- | --- | --- | --- |
+| Home | ![screenshot](documentation/wireframes/home_phone.jpeg) | ![screenshot](documentation/wireframes/home-tablet.jpeg) | ![screenshot](documentation/wireframes/home_desktop.jpeg) |
+| Profile Detail | ![screenshot](documentation/wireframes/profile_detail_home.jpeg) | ![screenshot](documentation/wireframes/profile_detail_tablet.jpeg) | ![screenshot](documentation/wireframes/profile_detail_desktop.jpeg) |
+| My Availability | ![screenshot](documentation/wireframes/availability_phone.jpeg) | ![screenshot](documentation/wireframes/availability_tablet.jpeg) | ![screenshot](documentation/wireframes/availability_desktop.jpeg) |
+| Profile Set Up / Edit | ![screenshot](documentation/wireframes/setup_edit_phone.jpeg) | ![screenshot](documentation/wireframes/setup_edit_tablet.jpeg) | ![screenshot](documentation/wireframes/setup_edit_desktop.jpeg) |
+| My Bookings | ![screenshot](documentation/wireframes/my_bookings_phone.jpeg) | ![screenshot](documentation/wireframes/my_bookings_tablet.jpeg) | ![screenshot](documentation/wireframes/my_bookings_desktop.jpeg) |
+| 404 | ![screenshot](documentation/wireframes/mobile-404.png) | ![screenshot](documentation/wireframes/tablet-404.png) | ![screenshot](documentation/wireframes/desktop-404.png) |
 
 
 
