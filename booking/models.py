@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import timedelta
 from market.models import TimeSlot
 
 
@@ -17,6 +18,11 @@ class Booking(models.Model):
 
     class Meta:
         ordering = ["-booked_at"]  # latest booking to be shown first
+
+    # to display time the mentee must be contacted by
+    @property
+    def contact_by(self):
+        return self.booked_at + timedelta(hours=24)
 
     def __str__(self):
         return f"{self.visitor_name} booked {self.time_slot.mentor.name} on {self.time_slot.date} at {self.time_slot.start_time}"  # noqa 501

@@ -40,11 +40,17 @@ def profile_detail(request, slug):
         mentor=profile,
         availability_status=0).order_by("date")
 
+    bookable_slots = []
+
+    for slot in time_slots:
+        if slot.is_bookable:
+            bookable_slots.append(slot)
+
     # To store date as key and slot objects as value
     grouped_by_date = {}
 
     # Loop through open slots
-    for slot in time_slots:
+    for slot in bookable_slots:
         if slot.date not in grouped_by_date:
             # Create empty list for date
             grouped_by_date[slot.date] = []

@@ -40,7 +40,7 @@ def book_a_slot(request, pk):
                f"{slot.start_time} received. Please allow 24H for "
                f"{slot.mentor.name} to contact you via provided email. "
             )
-
+            
             return redirect("home")
 
     return render(

@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-
+from datetime import datetime, timedelta
+from django.utils import timezone
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -54,3 +55,16 @@ class TimeSlot(models.Model):
 
     def __str__(self):
         return f"{self.mentor.name} is available on {self.date} from {self.start_time} to {self.end_time}"  # noqa 501
+
+    # combine slot date and start_time to be
+    # able to compare with current datetime
+    @property
+    def start_datetime(self):
+        tz = timezone.get_current_timezone()
+        naive = datetime.combine(self.date, self.start_time)
+        return timezone.make_aware(naive, tz)
+
+    # Ensure slot to be booked starts least 24 hours from time of booking
+    @property
+    def is_bookable(self):
+        return self.start_datetime >= timezone.now() + timedelta(hours=24)
