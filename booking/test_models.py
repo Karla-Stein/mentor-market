@@ -35,3 +35,29 @@ class BookingModelTest(TestCase):
         self.assertEqual(result, 'Lucy Wang booked Alice Smith on '
                          '2026-02-02 at 12:00',
                          msg='String message incorrect')
+     
+    def test_booking_is_linked_to_one_timeslot(self):
+        """Test that the booking correctly links to one timeslot"""
+        # ARRANGE
+        user = User.objects.create_user(username='alice',
+                                        password='testpw123')
+        profile = Profile.objects.create(user=user,
+                                         name='Alice Smith',
+                                         slug='alice-smith',
+                                         excerpt='I help with Python',
+                                         bio='Full bio here',
+                                         experience='5 years teaching',
+                                         specialism='Python programming'
+                                         )
+        timeslot = TimeSlot.objects.create(mentor=profile,
+                                           date='2026-02-02',
+                                           start_time='12:00',
+                                           end_time='13:00')
+        booking = Booking.objects.create(time_slot=timeslot,
+                                         visitor_name='Lucy Wang',
+                                         visitor_email='lucy@lucy.com')
+
+        # Act & Assert
+        self.assertEqual(booking.time_slot, timeslot)
+        self.assertEqual(timeslot.bookings, booking)
+
