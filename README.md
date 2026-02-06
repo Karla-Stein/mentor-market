@@ -174,3 +174,37 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | As a mentor | I can edit my availability | so that I can correct times or update my schedule. |
 | As a mentor | I can delete an unbooked slot | so that I can remove availability I no longer want to offer. |
 | As a mentor | I can view my upcoming bookings | so that I know who I am meeting and when. |
+
+
+## Features
+
+### Existing Features
+
+| Feature | Notes | Screenshot |
+| --- | --- | --- |
+| Sign Up | Authentication is handled by allauth, allowing Mentors to register accounts. | ![screenshot](documentation/features/sign_up.jpeg) |
+| Sign in | Authentication is handled by allauth, allowing Mentors to log in to their existing accounts. | ![screenshot](documentation/features/sign_in.jpeg) |
+| Sign out | Authentication is handled by allauth, allowing Mentors to log out of their accounts. | ![screenshot](documentation/features/sign_out.jpeg) |
+| Paginated Mentor List | The homepage displays Mentor cards in pages with 8 cards per page | ![screenshot](documentation/features/paginated_mentor_list.jpeg) |
+| Mentor card | Mentor cards with information including image, name and a brief excerpt of their offering. | ![screenshot](documentation/features/mentor_card.jpeg) |
+| Detailed Profile | Upon clicking the 'go to profile' cta user are taken to a page that displays detailed information such as bio, skills and experience. | ![screenshot](documentation/features/detailed_profile.jpeg) |
+| Edit and delete profile | Authenticated mentors can edit and delete their own profile. | ![screenshot](documentation/features/edit_delete_features.jpeg) |
+| Delete profile modal | When deleting their profile autheticated Mentors are prompted a modal to confirm their choice. | ![screenshot](documentation/features/profile_delete_modal.jpeg) |
+| Edit profile | The edit profile button redirects to the prepopulated profile form | ![screenshot](documentation/features/profile_edit.jpeg) |
+| Set availability | Authenticated mentors can set their available dates, session start and session end times. | ![screenshot](documentation/features/set_availability.jpeg) |
+| Date picker | Mentors can choose their date on a date picker widget for ease of use. | ![screenshot](documentation/features/date_widget.jpeg) |
+| Time hint | Mentors can schedule sessions on the hour. | ![screenshot](documentation/features/time_hint.jpeg) |
+| Manage availability cta| A section that clearly communicates where authenticated Mentors can manage their availability | ![screenshot](documentation/features/manage_availability_cta.jpeg) |
+| List of slots grouped by date | Mentors can choose which slot of a certain date they would like to edit or delete. | ![screenshot](documentation/features/slot_list.jpeg) |
+| Edit or delete availability | Upon choosing which slot to alter, the 'Set your Availability" form prepopulates with the chosen slot, giving the mentor the option to update or delete the slot. | ![screenshot](documentation/features/manage_availability.jpeg) |
+| Delete availability modal | When deleting the chosen slot Mentors are prompted a modal to confirm their choice. | ![screenshot](documentation/features/delete_slot_modal.jpeg) |
+| No bookings feedback | A message to the authenticated mentor that there are no bookings at the current time.| ![screenshot](documentation/features/feeback_no_bookings.jpeg) |
+| List of bookings | All bookings linked to authenticated mentor are listed and ordered by date to be viewed. | ![screenshot](documentation/features/my_bookings_list.jpeg) |
+| Booking details | Every listed booking is a dropdown that lists booking details such as name, email, start and endtime of the session as well as a timeframe by which the Mentee needs to be contacted. | ![screenshot](documentation/features/my_bookings_details.jpeg) |
+| Book a slot | Not authenticated visitor can choose a timeslot on the detailed profile page of the chosen Mentor.| ![screenshot](documentation/features/slot_choice.jpeg) |
+| Booking form | A form for not authenticated visitor to enter their name, email and optional their contact number to reserve a slot. | ![screenshot](documentation/features/booking_form.jpeg) |
+| Booking confirmation message | After booking, the not authnticated user is redirected to the homepage that displays a confirmation message.  | ![screenshot](documentation/features/booking_message.jpeg) |
+
+
+
+
