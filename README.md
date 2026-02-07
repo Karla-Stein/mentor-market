@@ -279,8 +279,8 @@ This approach allowed the core booking functionality to remain simple and robust
 | Stage | Tool | Purpose | ERD |
 | --- | --- | --- | --- | 
 | Initial Planned MVP ERD | [![Lucid](https://img.shields.io/badge/Lucid-ERD-grey?logo=lucid&logoColor=orange)](https://lucid.app) | Created during the planning phase to define core relationships, including a separate Visitor model to support future authentication and account management. | ![screenshot](documentation/erd/erd_lucid.jpeg) |
-| Refined MVP ERD | ![Google Sheets](https://img.shields.io/badge/Google%20Sheets-grey?logo=googlesheets&logoColor=green) | Used to visualise and validate the MVP data model, embedding visitor details within the Booking model to simplify relationships while maintaining future extensibility. | ![screenshot](documentation/erd/erd_sheet.jpeg) |
-| Final MVP ERD (Implemented Model Design) | ![Mermaid](https://img.shields.io/badge/Mermaid-ERD-grey?logo=mermaid&logoColor=coral) | This ERD represents the final MVP database structure, generated with Mermaid to visualise the implemented Django models and confirm the one-to-one relationship between bookings and mentor-specific time slots.  *(for interactivity, see below)*| ![screenshot](documentation/erd/erd_mermaid.jpeg) |
+| Refined MVP ERD | [![Google Sheets](https://img.shields.io/badge/Google%20Sheets-grey?logo=googlesheets&logoColor=green)](https://www.google.com/sheets/about/) | Used to visualise and validate the MVP data model, embedding visitor details within the Booking model to simplify relationships while maintaining future extensibility. | ![screenshot](documentation/erd/erd_sheet.jpeg) |
+| Final MVP ERD (Implemented Model Design) | ![Mermaid](https://img.shields.io/badge/Mermaid-ERD-grey?logo=mermaid&logoColor=coral)(https://mermaid.live) | This ERD represents the final MVP database structure, generated with Mermaid to visualise the implemented Django models and confirm the one-to-one relationship between bookings and mentor-specific time slots.  *(for interactivity, see below)*| ![screenshot](documentation/erd/erd_mermaid.jpeg) |
 
 
 
@@ -326,7 +326,7 @@ erDiagram
         string visitor_phone "blank allowed"
         datetime booked_at
     }
-``` |
+``` 
 
 
 source: [Mermaid](https://mermaid.live/edit#pako:eNqFVNtu4jAQ_RXLrwVEwj0P-9AWVojuggr7skKKHDIEq46d9aVbFvj32rlQoLD1QxTPzJk5c2aSHV6JGHCAQT5SkkiSLjmy59d8-Iz2-3p9v0ez5-lo_DREAVriDVEoBa6FDDMp1pTBEheIKsqBxA4txj-G86fpIkfFsKYcFCKvhDISUUb1tsIdA8tq99PpZPzze46jCkVCvECMojz-vNKuuLpDuUY0RrPJuckokKG1jyY22ZTDQtgHqn_L26sIuKO0pDxBnKRgIw2nfwxc8Stmkv_510C0kRCHNCWJy_TAhIkpJ3I7osDiKxB4W4HM9Cd7RMWV2AwkBb6Cz8wyWFHCqEo_XDHRoKntKIU0skIoeoZ0AiltCStLtIkeJVlrtEcempnIJtrAGd1jMpO51zgU5TQO1ViOg_x6LuUGVZMZCQk04RPYutmU470snj8-TDkXS1_q0L1eOIDHF2ZX9nT9wpPWpxnwvPP7fNmuTKmYeKhFAnoD0qKKFtBdwe3uhIq9HMvjC42q5f5aIgcPFRP66v5WWl-h-koVdeK6Xb7phNQqcdObbQR32xsxwl8QYUz8vbEMxdcZknJ_D7iGE0ljHGhpoGZFkraQveK84SW24jlVyn8CMUy7tA6WEf5biLRCSmGSDQ7WhCl7K3au_EEdrdLKDPJBGK5x0PaaeRIc7PCbvXbbjU7f89ttv-d7Lb9Xw1sc1Ftet9Fv-v5g0G12es1e51DD__KyXsPze32v3W11B61Oq9vza5gYLeZbvipIHd4B-JKW4Q)
