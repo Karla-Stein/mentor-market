@@ -169,11 +169,13 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | As a mentor | I can create an account  | so that I can apply to be listed on the platform.|
 | As a mentor | I can log in and log out | so that I can mange my profile and available slots securely. |
 | As a mentor | I can create and edit my profile | so that I can offer my mentoring to clients. |
-| As a mentor |  I can alter my profile | so that I can update or delete my offering. |
+| As a mentor | I can alter my profile | so that I can update or delete my offering. |
 | As a mentor | I can add slots that are available on the hour | so that visitors can book time with me. |
 | As a mentor | I can edit my availability | so that I can correct times or update my schedule. |
 | As a mentor | I can delete an unbooked slot | so that I can remove availability I no longer want to offer. |
 | As a mentor | I can view my upcoming bookings | so that I know who I am meeting and when. |
+| As the Platform | I can prevent bookings within 24 hours of the session start | so that Mentors are given enough time to respond to their mentees. |
+| As an Admin | I can review and approve mentor profiles | so that only suitable mentors are published. |
 
 
 ## Features
@@ -206,6 +208,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Booking confirmation message | After booking, the not authenticated user is redirected to the homepage that displays a confirmation message.  | ![screenshot](documentation/features/booking_message.jpeg) |
 
 
+
 ### Future Features
 
 - **Booking Cancellation by Mentors**:
@@ -224,4 +227,5 @@ Allow visitors to securely log in and log out using Django authentication so the
 Enable logged-in users to communicate directly with mentors or students through an in-platform messaging tab, allowing conversations to be managed and revisited in one central place.
 - **Automated Booking Confirmation Emails**: 
 Automatically send a confirmation email to the visitor when a booking is confirmed. This ensures clear communication and provides students with written confirmation of their scheduled session.
+
 
