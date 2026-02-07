@@ -280,7 +280,7 @@ This approach allowed the core booking functionality to remain simple and robust
 | --- | --- | --- | --- | 
 | Initial Planned MVP ERD | [![Lucid](https://img.shields.io/badge/Lucid-ERD-grey?logo=lucid&logoColor=orange)](https://lucid.app) | Created during the planning phase to define core relationships, including a separate Visitor model to support future authentication and account management. | ![screenshot](documentation/erd/erd_lucid.jpeg) |
 | Refined MVP ERD | [![Google Sheets](https://img.shields.io/badge/Google%20Sheets-grey?logo=googlesheets&logoColor=green)](https://www.google.com/sheets/about/) | Used to visualise and validate the MVP data model, embedding visitor details within the Booking model to simplify relationships while maintaining future extensibility. | ![screenshot](documentation/erd/erd_sheet.jpeg) |
-| Final MVP ERD (Implemented Model Design) | ![Mermaid](https://img.shields.io/badge/Mermaid-ERD-grey?logo=mermaid&logoColor=coral)(https://mermaid.live) | This ERD represents the final MVP database structure, generated with Mermaid to visualise the implemented Django models and confirm the one-to-one relationship between bookings and mentor-specific time slots.  *(for interactivity, see below)*| ![screenshot](documentation/erd/erd_mermaid.jpeg) |
+| Final MVP ERD (Implemented Model Design) |[![Mermaid](https://img.shields.io/badge/Mermaid-ERD-grey?logo=mermaid&logoColor=coral)](https://mermaid.live)  | This ERD represents the final MVP database structure, generated with Mermaid to visualise the implemented Django models and confirm the one-to-one relationship between bookings and mentor-specific time slots.  *(for interactivity, see below)*| ![screenshot](documentation/erd/erd_mermaid.jpeg) |
 
 
 
@@ -330,5 +330,36 @@ erDiagram
 
 
 source: [Mermaid](https://mermaid.live/edit#pako:eNqFVNtu4jAQ_RXLrwVEwj0P-9AWVojuggr7skKKHDIEq46d9aVbFvj32rlQoLD1QxTPzJk5c2aSHV6JGHCAQT5SkkiSLjmy59d8-Iz2-3p9v0ez5-lo_DREAVriDVEoBa6FDDMp1pTBEheIKsqBxA4txj-G86fpIkfFsKYcFCKvhDISUUb1tsIdA8tq99PpZPzze46jCkVCvECMojz-vNKuuLpDuUY0RrPJuckokKG1jyY22ZTDQtgHqn_L26sIuKO0pDxBnKRgIw2nfwxc8Stmkv_510C0kRCHNCWJy_TAhIkpJ3I7osDiKxB4W4HM9Cd7RMWV2AwkBb6Cz8wyWFHCqEo_XDHRoKntKIU0skIoeoZ0AiltCStLtIkeJVlrtEcempnIJtrAGd1jMpO51zgU5TQO1ViOg_x6LuUGVZMZCQk04RPYutmU470snj8-TDkXS1_q0L1eOIDHF2ZX9nT9wpPWpxnwvPP7fNmuTKmYeKhFAnoD0qKKFtBdwe3uhIq9HMvjC42q5f5aIgcPFRP66v5WWl-h-koVdeK6Xb7phNQqcdObbQR32xsxwl8QYUz8vbEMxdcZknJ_D7iGE0ljHGhpoGZFkraQveK84SW24jlVyn8CMUy7tA6WEf5biLRCSmGSDQ7WhCl7K3au_EEdrdLKDPJBGK5x0PaaeRIc7PCbvXbbjU7f89ttv-d7Lb9Xw1sc1Ftet9Fv-v5g0G12es1e51DD__KyXsPze32v3W11B61Oq9vza5gYLeZbvipIHd4B-JKW4Q)
+
+
+## Agile Development Process
+
+### GitHub Projects
+
+[GitHub Projects](https://www.github.com/Karla-Stein/mentor-market/projects) served as an Agile tool for this project. Through it, EPICs, User Stories, issues/bugs, and Milestone tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
+
+![screenshot](documentation/agile/project_board.jpeg)
+
+
+### GitHub Issues
+
+[GitHub Issues](https://www.github.com/Karla-Stein/mentor-market/issues) served as an another Agile tool. There, I managed my User Stories and Milestone tasks, and tracked any issues/bugs.
+
+| Link | Screenshot |
+| --- | --- |
+| [![GitHub closed issues](https://img.shields.io/github/issues-search/Karla-Stein/mentor-market?query=is%3Aissue%20is%3Aclosed%20-label%3Abug&label=Closed%20Issues&color=green)](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![screenshot](documentation/agile/closed_issues.jpeg) |
+| [![GitHub issues](https://img.shields.io/github/issues-search/Karla-Stein/mentor-market?query=is%3Aissue%20is%3Aopen%20-label%3Abug&label=Open%20Issues&color=yellow)](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | ![screenshot](documentation/agile/open_issues.jpeg) |
+
+
+### MoSCoW Prioritisation
+
+Project Epics were broken down into individual User Stories and prioritised using the MoSCoW framework. Each User Story was tracked and labelled within GitHub Issues to clearly define scope and development focus for the MVP.
+
+- **Must Have**: Core functionality required for the MVP and project submission. These features are essential for the platform to function.
+- **Should Have**: High-value features that significantly improve usability and workflow but are not strictly required for MVP completion.
+- **Could Have**: Valuable enhancements that were intentionally scoped out of the MVP due to time and complexity, but are planned for future development (e.g. visitor authentication).
+- **Won’t Have**: Features explicitly excluded from the current development iteration and outside the scope of the MVP.
+
+
 
 
