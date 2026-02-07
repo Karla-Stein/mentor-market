@@ -203,8 +203,25 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Booking details | Every listed booking is a dropdown that lists booking details such as name, email, start and endtime of the session as well as a timeframe by which the Mentee needs to be contacted. | ![screenshot](documentation/features/my_bookings_details.jpeg) |
 | Book a slot | Not authenticated visitor can choose a timeslot on the detailed profile page of the chosen Mentor.| ![screenshot](documentation/features/slot_choice.jpeg) |
 | Booking form | A form for not authenticated visitor to enter their name, email and optional their contact number to reserve a slot. | ![screenshot](documentation/features/booking_form.jpeg) |
-| Booking confirmation message | After booking, the not authnticated user is redirected to the homepage that displays a confirmation message.  | ![screenshot](documentation/features/booking_message.jpeg) |
+| Booking confirmation message | After booking, the not authenticated user is redirected to the homepage that displays a confirmation message.  | ![screenshot](documentation/features/booking_message.jpeg) |
 
 
+### Future Features
 
+- **Booking Cancellation by Mentors**:
+ Enable mentors to cancel an existing booking when schedule changes occur. This feature would allow mentors to manage their availability more effectively and handle adjustments while keeping bookings accurate and up to date.
+- **Recurring Availability Setup**: 
+Enable mentors to define recurring weekly or monthly availability, allowing the system to automatically generate time slots for a selected period. This would reduce manual setup and ensure availability is displayed in a clear order.
+- **Booking Confirmation Toggle**:
+ Allow mentors to manually confirm a booking via toggle. Once confirmed, the booking status updates accordingly.
+- **Reopen Cancelled Bookings**: 
+Allow mentors to reopen previously cancelled bookings, automatically resetting the slot’s availability status to 'open'. This would make the time slot visible again on the public mentor profile, enabling new visitors to book the session.
+- **Visitor Account Registration**: 
+Enable visitors to sign up using Django authentication so they can manage their bookings and access a personal booking history.
+- **Visitor Login & Logout**: 
+Allow visitors to securely log in and log out using Django authentication so they can access and manage their bookings.
+- **Messaging System**: 
+Enable logged-in users to communicate directly with mentors or students through an in-platform messaging tab, allowing conversations to be managed and revisited in one central place.
+- **Automated Booking Confirmation Emails**: 
+Automatically send a confirmation email to the visitor when a booking is confirmed. This ensures clear communication and provides students with written confirmation of their scheduled session.
 
