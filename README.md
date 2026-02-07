@@ -360,6 +360,72 @@ Project Epics were broken down into individual User Stories and prioritised usin
 - **Could Have**: Valuable enhancements that were intentionally scoped out of the MVP due to time and complexity, but are planned for future development (e.g. visitor authentication).
 - **Won’t Have**: Features explicitly excluded from the current development iteration and outside the scope of the MVP.
 
+## Testing
+
+> [!NOTE]  
+> For all testing, please refer to the [TESTING.md](TESTING.md) file.
+
+
+## Deployment
+
+The live deployed application can be found deployed on [Heroku](https://my-mentor-market-e1c13c4d04df.herokuapp.com).
+
+### Heroku Deployment
+
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run and operate applications entirely in the cloud.
+
+Deployment steps are as follows, after account setup:
+
+- Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
+- Your app name must be unique, and then choose a region closest to you (EU or USA), then finally, click **Create App**.
+- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables to match your private `env.py` file.
+
+> [!IMPORTANT]  
+> This is a sample only; you would replace the values with your own if cloning/forking my repository.
+
+| Key | Value |
+| --- | --- |
+| `CLOUDINARY_URL` | user-inserts-own-cloudinary-url |
+| `DATABASE_URL` | user-inserts-own-postgres-database-url |
+| `SECRET_KEY` | any-random-secret-key |
+
+Heroku needs some additional files in order to deploy properly.
+
+- [requirements.txt](requirements.txt)
+- [Procfile](Procfile)
+- [.python-version](.python-version)
+
+You can install this project's **[requirements.txt](requirements.txt)** (*where applicable*) using:
+
+- `pip3 install -r requirements.txt`
+
+If you have your own packages that have been installed, then the requirements file needs updated using:
+
+- `pip3 freeze --local > requirements.txt`
+
+The **[Procfile](Procfile)** can be created with the following command:
+
+- `echo web: gunicorn app_name.wsgi > Procfile`
+- *replace `app_name` with the name of your primary Django app name; the folder where `settings.py` is located*
+
+The **[.python-version](.python-version)** file tells Heroku the specific version of Python to use when running your application.
+
+- `3.12` (or similar)
+
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+
+Either (*recommended*):
+
+- Select **Automatic Deployment** from the Heroku app.
+
+Or:
+
+- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a app_name` (*replace `app_name` with your app name*)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
+	- `git push heroku main`
+
+The project should now be connected and deployed to Heroku!
 
 
 
