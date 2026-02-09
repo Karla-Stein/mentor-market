@@ -260,6 +260,7 @@ Automatically send a confirmation email to the visitor when a booking is confirm
 | [![Lucid](https://img.shields.io/badge/Lucid-ERD-grey?logo=lucid&logoColor=orange)](https://lucid.app) | Planning the initial ERD |
 | [![Google Sheets](https://img.shields.io/badge/Google%20Sheets-grey?logo=googlesheets&logoColor=white)](https://www.google.com/sheets/about/) | Refining the ERD |
 | [![Mermaid](https://img.shields.io/badge/Mermaid-ERD-grey?logo=mermaid&logoColor=coral)](https://mermaid.live) | Creating an interactive version of the ERD |
+| [![Figma](https://img.shields.io/badge/Figma-grey?logo=figma&logoColor=purple)](https://www.figma.com) | Used to generate the colour palette. |
 
 
 
@@ -587,6 +588,7 @@ There are no remaining major differences between the local version when compared
 - Lucid: Used to create the initial ERD during the planning phase. https://lucid.app/
 - Google Sheets: Used to refine and validate the MVP data model structure. https://www.google.com/sheets/
 - Mermaid: Used to generate an interactive ERD representing the final implemented database design. https://mermaid.live/
+- Figma: Used to generate and refine the colour scheme, helping visualise contrast and balance before applying colours across the UI.
 
 
 
