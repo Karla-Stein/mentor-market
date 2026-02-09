@@ -28,5 +28,25 @@ I have used the recommended HTML W3C Validator to validate all of my HTML files.
 > As no custom HTML structure was introduced, I excluded these templates from manual HTML validation.
 
 
+### CSS
+
+I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator) to validate all of my CSS files.
+
+| Directory | File | URL | Screenshot | Notes |
+| --- | --- | --- | --- | --- |
+| static | [style.css](https://github.com/Karla-Stein/mentor-market/blob/main/static/css/style.css) | [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmy-mentor-market-e1c13c4d04df.herokuapp.com%2Fstatic%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#warnings)| ![screenshot](documentation/css_validation/css.jpeg) | |
+| static | [style.css](https://github.com/Karla-Stein/mentor-market/blob/main/static/css/style.css) | [CSS Jigsaw Validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmy-mentor-market-e1c13c4d04df.herokuapp.com%2Fstatic%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#warnings)| ![screenshot](documentation/css_validation/css_warnings.jpeg) | CSS validation produced warnings related to CSS custom properties (variables). These warnings are expected due to the dynamic nature of CSS variables and do not affect functionality or browser compatibility. |
+
+
+
+### Javascript
+
+I have used the recommended [JShint Validator](https://jshint.com) to validate my JS files.
+
+| Directory | File | Screenshot | 
+| --- | --- | --- | 
+| static | [availability_delete.js](https://github.com/Karla-Stein/mentor-market/blob/main/static/js/availability_delete.js) | ![screenshot](documentation/js/availability_delete.jpeg) |  
+| static | [profile_delete.js](https://github.com/Karla-Stein/mentor-market/blob/main/static/js/profile_delete.js) |  ![screenshot](documentation/js/profile_delete.jpeg) |  
+
 
 
