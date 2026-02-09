@@ -577,7 +577,7 @@ There are no remaining major differences between the local version when compared
 - Medium: Used as a learning reference to understand HTML5 date and time pickers (type="date" and type="time"). Including step configuration, which helped shape the availability form setup.
 - MDN Web Docs: Referenced for HTML and CSS fundamentals. https://developer.mozilla.org/
 - W3Schools: Used as a supplementary reference for quick syntax checks and examples. https://www.w3schools.com/
-- ChatGPT: Used as a development assistant to clarify technical concepts, troubleshoot issues, support debugging and to find specific documentation quickly. 
+- ChatGPT: Used as a development assistant to clarify technical concepts, troubleshoot issues, support debugging and to find specific documentation quickly.
 
 **Tools & Resources**
 - Bootstrap 5: Used for layout, responsive design, and UI components. https://getbootstrap.com/
@@ -591,6 +591,22 @@ There are no remaining major differences between the local version when compared
 - Figma: Used to generate and refine the colour scheme, helping visualise contrast and balance before applying colours across the UI.
 
 
+### Content
+
+| Source | Notes |
+| --- | --- |
+| [Markdown Builder](https://markdown.2bn.dev) | Help generating Markdown files |
+| [I Think Therefore I Blog](https://codeinstitute.net) | Code Institute walkthrough project inspiration |
+| [Bootstrap](https://getbootstrap.com) | Various components / responsive front-end framework |
+| [Cloudinary API](https://cloudinary.com) | Cloud storage for static/media files |
+| [Whitenoise](https://whitenoise.readthedocs.io) | Static file service |
+| [ChatGPT](https://chatgpt.com) | Used to generate non-logical mock content (fixture data) to support testing throughout the developmet process. |
+| [Medium](https://medium.com/@altafkhan_24475/part-7-built-in-widgets-in-django-form-2d15fdef8e5e) | Used to understand how to use built-in widgets in Django forms, especially date and time input. |
+| [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/step) | To implement the step attribute within the time input widget during availability setup and editing. |
+| [Django docs - timezones](https://docs.djangoproject.com/en/6.0/topics/i18n/timezones/) | Used to understand how to correctly work with timezone-aware datetimes. This was important to ensure that stored dates and times could be safely compared with timezone.now() when applying booking rules. | 
+| [Python docs - datetime](https://docs.python.org/3/library/datetime.html) | Used to understand how to combine separate date and time values into a single datetime object, before making it time aware.  |
+| [Python docs – timedelta](https://docs.python.org/3/library/datetime.html#datetime.timedelta) | Used to understand how to calculate time offsets (such as enforcing a 24-hour booking rule and contact deadlines) by adding or comparing time durations. |
+| [Django docs – login_required](https://docs.djangoproject.com/en/stable/topics/auth/default/#the-login-required-decorator) | Used to enforce authentication at the view level. Initially, access to certain pages was only conditionally controlled in the template using Django Template Language, which allowed unauthenticated users to access URLs directly without being prompted to log in. The `@login_required` decorator was added to properly secure these views and ensure only authenticated users can access protected routes. |
 
 
 
