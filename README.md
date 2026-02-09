@@ -553,6 +553,41 @@ By forking the GitHub Repository, you make a copy of the original repository on 
 3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
 
 
+### Local VS Deployment
+
+There are no remaining major differences between the local version when compared to the deployed version online.
+
+
+## Credits 
+
+**Content & Design Inspiration**
+- The concept, layout and user flow for Mentor Market were informed by best practices taught throughout the Code Institute course and its walkthrough projects.
+- All design decisions, feature prioritisation and content structure were independently planned and implemented to suit the specific goals of this project.
+
+**README Guidance**
+- The structure and formatting of this README were guided by the Markdown Builder, a tool created by Tim Nelson, which was introduced to me during my studies.
+- The builder was used as a structural reference to ensure clarity, consistency and alignment with assessment requirements.
+
+**Code References & Learning Resources**
+- Code Institute: Core project structure, Django best practices and testing approaches were guided by course materials and walkthrough projects.
+- Nescot: Additional support and clarification on testing concepts were provided by my NESCOT tutor, Richey Malhotra, helping to reinforce correct testing approaches and best practices.
+- Django Documentation: Used extensively for models, views, forms. https://docs.djangoproject.com/
+- Python Documentation: Mainly used to reference datetime and timedelta functionality for time-based logic.
+- Medium: Used as a learning reference to understand HTML5 date and time pickers (type="date" and type="time"). Including step configuration, which helped shape the availability form setup.
+- MDN Web Docs: Referenced for HTML and CSS fundamentals. https://developer.mozilla.org/
+- W3Schools: Used as a supplementary reference for quick syntax checks and examples. https://www.w3schools.com/
+- ChatGPT: Used as a development assistant to clarify technical concepts, troubleshoot issues, support debugging and to find specific documentation quickly. 
+
+**Tools & Resources**
+- Bootstrap 5: Used for layout, responsive design, and UI components. https://getbootstrap.com/
+- Balsamiq: Used for early-stage wireframe creation. https://balsamiq.com
+- Gemini: Used to generate profile images. https://gemini.google.com/
+- Google Fonts: Used for typography selection and branding. https://fonts.google.com/
+- Font Awesome: Used for icons and interface enhancements. https://fontawesome.com/
+- Lucid: Used to create the initial ERD during the planning phase. https://lucid.app/
+- Google Sheets: Used to refine and validate the MVP data model structure. https://www.google.com/sheets/
+- Mermaid: Used to generate an interactive ERD representing the final implemented database design. https://mermaid.live/
+
 
 
 
