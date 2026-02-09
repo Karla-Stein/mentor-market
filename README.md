@@ -609,5 +609,19 @@ There are no remaining major differences between the local version when compared
 | [Django docs – login_required](https://docs.djangoproject.com/en/stable/topics/auth/default/#the-login-required-decorator) | Used to enforce authentication at the view level. Initially, access to certain pages was only conditionally controlled in the template using Django Template Language, which allowed unauthenticated users to access URLs directly without being prompted to log in. The `@login_required` decorator was added to properly secure these views and ensure only authenticated users can access protected routes. |
 
 
+### Media
 
+| Source | Notes |
+| --- | --- |
+| [Gemini](https://gemini.google.com/) | Used to generate all profile images. |
+| [favicon.io](https://favicon.io) | Used to generate the site favicon. |
+| [Font Awesome](https://fontawesome.com) | Icon used in footer. |
+| [Google Fonts](https://fonts.google.com) | Used to source web fonts for the site’s typography. |
+
+
+### Acknowledgements
+
+- I would like to thank my former Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN), to introduce me to the Markdown builder.
+- I would like to thank [Richey Malhotra](https://github.com/richey-malhotra) for investing additional time into our cohort by providing 1:1 support sessions, which went beyond what was formally offered through Nescot and contributed significantly to my learning.
+- I would like to thank **Zoe Brown**, Head of School, for ensuring that appropriate support was in place and advocating for students throughout this project.
 
