@@ -24,6 +24,3 @@ urlpatterns = [
     path('booking/', include("booking.urls"), name='booking-urls'),
     path('', include("market.urls"), name='market-urls'),
 ]
-
-# 404 handler. Points to the redirect view in the market app
-handler404 = 'market.views.redirectPNF'
