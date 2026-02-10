@@ -6,8 +6,10 @@
     <div class="row">
         <!-- My booking column -->
         <div class="col-12 mt-3 left">
-            <div class="row">
+            <div class="row text-center">
                 {% if booked_slots%}
+                <h2 class="mb-4 text-center">My Bookings:</h2>
+                <p>Please make sure you contact your Mentee within the timeframe.</p>
                     {% for booking in booked_slots %}
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown"

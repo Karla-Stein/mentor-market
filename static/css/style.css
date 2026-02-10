@@ -19,7 +19,7 @@ body {
     background-color: var(--primary-color);
     font-family: var(--secondary-font);
     color: var(--primaty-text-color);
-    padding: 10px 20px;
+    padding: 60px 20px;
 }
 
 .divider{
@@ -48,24 +48,6 @@ button.dropdown-toggle{
 .hidden{
     display: none;
 }
-/* Hero section */
-#hero-title{
-    color: var(--primaty-text-color);
-    font-family: var(--accent-font);
-}
-
-
-#hero-sub{
-    color: var(--accent-color);
-    font-family: var(--accent-font);
-    letter-spacing: 2px;
-    font-weight: bolder;
-}
-
-#hero-p{
-    color: var(--secondary-text-color);
-}
-
 
 /* Navbar */
 
@@ -90,7 +72,7 @@ button.dropdown-toggle{
 .navbar {
     font-weight: bolder;
     background-color: var(--primary-color);
-    border-bottom: 1px solid var(--secondary-text-color);
+    border-bottom: 0.5px solid var(--secondary-text-color);
     padding-left: 10px;
     margin-bottom: 10px;
 }
@@ -130,6 +112,25 @@ button.dropdown-toggle{
 #login-confirm{
     color: var(--primaty-text-color);
 }
+
+/* Hero section */
+#hero-title{
+    color: var(--primaty-text-color);
+    font-family: var(--accent-font);
+}
+
+
+#hero-sub{
+    color: var(--accent-color);
+    font-family: var(--accent-font);
+    letter-spacing: 2px;
+    font-weight: bolder;
+}
+
+#hero-p{
+    color: var(--secondary-text-color);
+}
+
 
 /* Market */
 .card{
@@ -261,11 +262,6 @@ img .profile-image{
 /* Media queries */
 
 @media screen and (max-width: 320px) {
-    .navbar-toggler{
-        position: relative;
-        left: 200px;
-        bottom: 40px;
-    }
 
     .navbar{
         height: 50px;
