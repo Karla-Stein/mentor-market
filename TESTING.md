@@ -49,3 +49,18 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate m
 
 
 
+## Lighthouse Audit
+
+I've tested my deployed project using the Lighthouse Audit tool to check for any major issues. Some warnings are outside of my control, and mobile results tend to be lower than desktop.
+
+| Page | Mobile | Desktop |
+| --- | --- | --- |
+| Home | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/home_desktop.jpeg) |
+| My Profile | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/profile_desktop.jpeg) |
+| My availability | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/availability_desktop.jpeg) |
+| My Bookings | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/mybookings_desktop.jpeg) |
+| Profile setup  | ![screenshot](documentation/lighthouse/profilesetup_mobile.jpeg) | ![screenshot](documentation/lighthouse/profilesetup_desktop.jpeg) |
+| Booking Form | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/bookingform_desktop.jpeg) |
+| 404 | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/) |
+
+
