@@ -32,7 +32,9 @@ body {
 
 .btn-edit{
     background-color: var(--secondary-text-color);
-    border: var(--secondary-text-color)
+    border: var(--secondary-text-color);
+    width: 80px;
+    margin-right: 5px;
 }
 
 .btn-edit:hover{
@@ -262,7 +264,9 @@ img .profile-image{
 /* Media queries */
 
 @media screen and (max-width: 320px) {
-
+    .btn-edit{
+        width: 78px;
+    }
     .navbar{
         height: 50px;
     }

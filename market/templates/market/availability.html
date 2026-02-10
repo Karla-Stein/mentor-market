@@ -17,12 +17,14 @@
                 <form method="post">
                     {% csrf_token %}
                     {{ availability_form|crispy }}
-                    <button type="submit" class="btn btn-signup btn-primary nav-bar-btn">{% if slot %} Update {% else %}
+                    <button type="submit" class="btn btn-signup btn-primary btn-edit">{% if slot %} Update {% else %}
                         Submit {% endif %}</button>
                     {% if slot %}
                     <!-- Button to activate modal to delete availability -->
-                    <button type="button" class="btn btn-secondary" id="delete-slot" data-slot-id="{{ slot.id }}">
+                    <button type="button" class="btn btn-secondary btn-edit" id="delete-slot"
+                        data-slot-id="{{ slot.id }}">
                         Delete</button>
+                    <a type="submit" class="btn btn-secondary  btn-edit" href="{% url 'availability' %}">Back</a>
                     {% endif %}
                 </form>
                 {% endif %}
