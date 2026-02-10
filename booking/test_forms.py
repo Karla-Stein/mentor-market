@@ -9,7 +9,7 @@ class TestVisitorBooking(TestCase):
         visitor_booking_form = VisitorBooking({'visitor_name': 'Test Name',
                                               'visitor_email': 'test@email.com'
                                                })
-  
+
         self.assertTrue(visitor_booking_form.is_valid(),
                         msg='Form is not valid')
 
@@ -28,7 +28,7 @@ class TestVisitorBooking(TestCase):
                                                })
         self.assertFalse(visitor_booking_form.is_valid(),
                          msg='No name provided. The form should be invalid')
-      
+
     def test_email_is_required(self):
         """Test for 'visitor_email' field"""
         visitor_booking_form = VisitorBooking({'visitor_name': 'name',

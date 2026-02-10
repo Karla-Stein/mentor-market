@@ -48,6 +48,16 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate m
 | static | [profile_delete.js](https://github.com/Karla-Stein/mentor-market/blob/main/static/js/profile_delete.js) |  ![screenshot](documentation/js/profile_delete.jpeg) |  
 
 
+### Python
+
+I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com) to validate all of my Python files.
+
+| Directory | File | URL | Screenshot | Notes |
+| --- | --- | --- | --- | --- |
+| mentor_market | [settings.py](https://github.com/Karla-Stein/mentor-market/blob/main/mentor_market/settings.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Karla-Stein/mentor-market/refs/heads/main/mentor_market/settings.py) | ![screenshot](documentation/python_validation/mentor_market_settings.jpeg) | ⚠️ Notes (if applicable) |
+| mentor_market | [urls.py](https://github.com/Karla-Stein/mentor-market/blob/main/mentor_market/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Karla-Stein/mentor-market/refs/heads/main/mentor_market/urls.py) | ![screenshot](documentation/python_validation/mentor_market_urls.jpeg) | ⚠️ Notes (if applicable) |
+
+
 
 ## Lighthouse Audit
 

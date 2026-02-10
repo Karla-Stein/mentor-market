@@ -40,7 +40,7 @@ def book_a_slot(request, pk):
                f"{slot.start_time} received. Please allow 24H for "
                f"{slot.mentor.name} to contact you via provided email. "
             )
-            
+
             return redirect("home")
 
     return render(
@@ -67,7 +67,9 @@ def booking_details(request):
     """
     profile = get_object_or_404(Profile, user=request.user)
     # using reverse traversal to walk through relationships
-    booked_slots = Booking.objects.filter(time_slot__mentor=profile).order_by("time_slot__date", "time_slot__start_time")  # noqa 501
+    booked_slots = Booking.objects.filter(
+        time_slot__mentor=profile).order_by(
+            "time_slot__date", "time_slot__start_time")
 
     return render(
         request,

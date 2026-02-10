@@ -5,7 +5,7 @@ from market.models import TimeSlot
 
 class Booking(models.Model):
     """
-    A model to store visitor details for specific time slot. 
+    A model to store visitor details for specific time slot.
     Related to  :model: `TimeSlot`.
     """
     time_slot = models.OneToOneField(
@@ -25,4 +25,6 @@ class Booking(models.Model):
         return self.booked_at + timedelta(hours=24)
 
     def __str__(self):
-        return f"{self.visitor_name} booked {self.time_slot.mentor.name} on {self.time_slot.date} at {self.time_slot.start_time}"  # noqa 501
+        return f"{self.visitor_name} booked "
+        f"{self.time_slot.mentor.name} on {self.time_slot.date} at "
+        f"{self.time_slot.start_time}"

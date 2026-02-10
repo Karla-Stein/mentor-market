@@ -9,7 +9,7 @@ class BookingModelTest(TestCase):
     def test_booking_str_return_profile_of_username(self):
         """Test that __str__ returns '{self.visitor_name} booked
         {self.time_slot.mentor.name} on {self.time_slot.date} at
-        {self.time_slot.start_time}'.""" 
+        {self.time_slot.start_time}'."""
         # ARRANGE
         user = User.objects.create_user(username='alice',
                                         password='testpw123')
@@ -35,7 +35,7 @@ class BookingModelTest(TestCase):
         self.assertEqual(result, 'Lucy Wang booked Alice Smith on '
                          '2026-02-02 at 12:00',
                          msg='String message incorrect')
-     
+
     def test_booking_is_linked_to_one_timeslot(self):
         """Test that the booking correctly links to one timeslot"""
         # ARRANGE
@@ -60,4 +60,3 @@ class BookingModelTest(TestCase):
         # Act & Assert
         self.assertEqual(booking.time_slot, timeslot)
         self.assertEqual(timeslot.bookings, booking)
-

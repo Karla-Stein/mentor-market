@@ -6,7 +6,7 @@ from market.models import Profile, TimeSlot
 class ProfileModelTest(TestCase):
     """Tests for the Profile model."""
     def test_profile_str_return_profile_of_username(self):
-        """Test that __str__ returns 'Profile of {username}'."""    
+        """Test that __str__ returns 'Profile of {username}'."""
         # ARRANGE - Create the data we need
         user = User.objects.create_user(username='alice',
                                         password='testpw123')
@@ -24,13 +24,13 @@ class ProfileModelTest(TestCase):
         # ASSERT - Check the result is what we expected
         self.assertEqual(result, 'Profile of alice',
                          msg='String message incorrect')
-        
+
     def test_profile_status_to_draft(self):
         """Test that new profiles have status=0 (Draft) by default"""
-        # Arrange 
+        # Arrange
         user = User.objects.create_user(username='Bob',
                                         password='testpw123')
-        
+
         # Act
         profile = Profile.objects.create(user=user,
                                          name='Bob Jones',
@@ -65,7 +65,7 @@ class TimeSlotTest(TestCase):
     """Tests for the TimeSlot model."""
     def test_timeslot_str_return_mentorname_date_start_and_endtime(self):
         """Test that __str__ returns '{self.mentor.name} is available on
-        {self.date} from {self.start_time} to {self.end_time}'."""  
+        {self.date} from {self.start_time} to {self.end_time}'."""
         # ARRANGE - Create the data we need
         user = User.objects.create_user(username='alice',
                                         password='testpw123')
@@ -83,20 +83,20 @@ class TimeSlotTest(TestCase):
                                            end_time='13:00'
                                            )
 
-        # ACT 
+        # ACT
         result = str(timeslot)
-        # ASSERT 
+        # ASSERT
         self.assertEqual(result, 'Alice Smith is available on 2026-02-02 from'
                          ' 12:00 to 13:00',
                          msg='String message incorrect')
-        
+
     def test_timeslot_status_to_draft(self):
         """Test that new timeslots have availability_status=0 (Open)
         by default"""
         # Arrange
         user = User.objects.create_user(username='Bob',
                                         password='testpw123')
-      
+
         profile = Profile.objects.create(user=user,
                                          name='Bob Jones',
                                          slug='bob-jones',
