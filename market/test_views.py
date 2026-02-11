@@ -62,6 +62,11 @@ class TestSetMentorProfileViews(TestCase):
         self.client.login(
             username="Test_user", password="testpw123")
 
+    def test_login_required(self):
+        self.client.logout()
+        response = self.client.get(reverse('profile'))
+        self.assertNotEqual(response.status_code, 200)
+
     def test_status_code_and_feedback_msg(self):
 
         profile_data = {"name": "Test User",
@@ -100,8 +105,9 @@ class TestSetMentorAvailabilityView(TestCase):
         self.profile.save()
 
     def test_status_code(self):
+        self.client.logout()
         response = self.client.get(reverse('availability'))
-        self.assertEqual(response.status_code, 200)
+        self.assertNotEqual(response.status_code, 200)
 
     def test_slot_successful_submitted(self):
         slot_data = {
@@ -136,11 +142,16 @@ class TestProfileDeleteView(TestCase):
                                specialism="test specialism", status=1)
         self.profile.save()
 
+    def test_login_required(self):
+        self.client.logout()
+        response = self.client.get(reverse('profile_delete',
+                                           args=["test-user"]))
+        self.assertNotEqual(response.status_code, 200)
+
     def test_status_code_and_response_content(self):
         response = self.client.get(reverse('profile_delete',
                                            args=["test-user"]), follow=True)
         self.assertEqual(response.status_code, 200)
-
         self.assertIn(
             b"Profile successfully deleted",
             response.content
