@@ -6,7 +6,7 @@ from .models import Booking
 
 
 class TestBookASlotView(TestCase):
-    """Test status code"""
+    """Test status code and check if booking successfully saves to database"""
     def setUp(self):
         self.user = User.objects.create_user(
                 username="Test_user",
