@@ -83,7 +83,7 @@ class TestSetMentorProfileViews(TestCase):
 
 
 class TestSetMentorAvailabilityView(TestCase):
-    """Tests for login required"""
+    """Tests for login required and successfull adding of slots"""
     def setUp(self):
         self.user = User.objects.create_user(
             username="Test_user",
@@ -102,3 +102,18 @@ class TestSetMentorAvailabilityView(TestCase):
     def test_status_code(self):
         response = self.client.get(reverse('availability'))
         self.assertEqual(response.status_code, 200)
+
+    def test_slot_successful_submitted(self):
+        slot_data = {
+            "date": "2026-01-01",
+            "start_time": "10:00",
+            "end_time": "11:00",
+        }
+        response = self.client.post(reverse('availability'), slot_data,
+                                    # follows the redirect
+                                    follow=True)
+
+        self.assertIn(
+            b"Slot succesfully added",
+            response.content
+        )
