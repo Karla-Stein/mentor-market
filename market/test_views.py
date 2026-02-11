@@ -223,7 +223,7 @@ class TestEditProfileView(TestCase):
                                    specialism="test specialism", status=1)
             self.profile.save()
 
-            self.timeslot = TimeSlot(mentor=self.profile, date="2026-002-12",
+            self.timeslot = TimeSlot(mentor=self.profile, date="2026-02-12",
                                      start_time="10:00",
                                      end_time="11:00",
                                      availability_status=0)
@@ -249,3 +249,47 @@ class TestEditProfileView(TestCase):
                 b"Availability successfully updated",
                 response.content
             )
+
+
+class TestDeleteAvailabilityView(TestCase):
+    """Test login_required and successfull deletion of availability slots"""
+    def setUp(self):
+        self.user = User.objects.create_user(
+                username="Test_user",
+                password="testpw123",
+                email="test@test.com"
+            )
+        self.client.login(
+                username="Test_user", password="testpw123")
+
+        self.profile = Profile(user=self.user, name="Test User",
+                               slug="test-user", excerpt="Blog excerpt",
+                               bio="test bio",
+                               experience="test experience",
+                               specialism="test specialism", status=1)
+        self.profile.save()
+
+        self.timeslot = TimeSlot(mentor=self.profile, date="2026-02-12",
+                                 start_time="10:00",
+                                 end_time="11:00",
+                                 availability_status=0)
+        self.timeslot.save()
+
+    def test_login_required(self):
+        self.client.logout()
+        response = self.client.get(reverse('delete_availability',
+                                           args=[self.timeslot.pk]))
+        self.assertEqual(response.status_code, 302)
+        pk = self.timeslot.pk
+        self.assertTrue(TimeSlot.objects.filter(pk=pk).exists(),
+                        msg="Timeslot does not exists")
+
+    def test_successful_deletion(self):
+        response = self.client.get(
+            reverse('delete_availability', args=[self.timeslot.pk]),
+            follow=True)
+        self.assertEqual(response.status_code, 200)
+        pk = self.timeslot.pk
+        self.assertFalse(
+            TimeSlot.objects.filter(pk=pk).exists(),
+            msg="Timeslot not deleted")
