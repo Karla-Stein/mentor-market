@@ -47,3 +47,58 @@ class TestProfileDetailViews(TestCase):
             msg="Time slot not bookable")
         self.assertIn(self.timeslot.date, grouped_by_date,
                       msg="Date should be in 'grouped_by_date")
+
+
+class TestSetMentorProfileViews(TestCase):
+    """Tests login required and feedback message"""
+    def setUp(self):
+
+        self.user = User.objects.create_user(
+            username="Test_user",
+            password="testpw123",
+            email="test@test.com"
+           )
+
+        self.client.login(
+            username="Test_user", password="testpw123")
+
+    def test_status_code_and_feedback_msg(self):
+
+        profile_data = {"name": "Test User",
+                        "excerpt": "Blog excerpt",
+                        "bio": "test bio",
+                        "experience": "test experience",
+                        "specialism": "test specialism",
+                        }
+        response = self.client.post(reverse(
+            'profile'), profile_data)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(self.client.login(
+            username="Test_user", password="testpw123"))
+        self.assertIn(
+            b"Profile submitted. Awaiting approval",
+            response.content
+        )
+
+
+class TestSetMentorAvailabilityView(TestCase):
+    """Tests for login required"""
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username="Test_user",
+            password="testpw123",
+            email="test@test.com"
+           )
+        self.client.login(
+            username="Test_user", password="testpw123")
+
+        self.profile = Profile(user=self.user, name="Test User",
+                               slug="test-user", excerpt="Blog excerpt",
+                               bio="test bio", experience="test experience",
+                               specialism="test specialism", status=1)
+        self.profile.save()
+
+    def test_status_code(self):
+        response = self.client.get(reverse('availability'))
+        self.assertEqual(response.status_code, 200)
