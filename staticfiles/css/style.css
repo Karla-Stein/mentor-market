@@ -19,7 +19,7 @@ body {
     background-color: var(--primary-color);
     font-family: var(--secondary-font);
     color: var(--primaty-text-color);
-    padding: 10px 20px;
+    padding: 60px 20px;
 }
 
 .divider{
@@ -32,7 +32,9 @@ body {
 
 .btn-edit{
     background-color: var(--secondary-text-color);
-    border: var(--secondary-text-color)
+    border: var(--secondary-text-color);
+    width: 80px;
+    margin-right: 5px;
 }
 
 .btn-edit:hover{
@@ -45,24 +47,9 @@ button.dropdown-toggle{
     width: 134px;
 }
 
-/* Hero section */
-#hero-title{
-    color: var(--primaty-text-color);
-    font-family: var(--accent-font);
+.hidden{
+    display: none;
 }
-
-
-#hero-sub{
-    color: var(--accent-color);
-    font-family: var(--accent-font);
-    letter-spacing: 2px;
-    font-weight: bolder;
-}
-
-#hero-p{
-    color: var(--secondary-text-color);
-}
-
 
 /* Navbar */
 
@@ -87,7 +74,7 @@ button.dropdown-toggle{
 .navbar {
     font-weight: bolder;
     background-color: var(--primary-color);
-    border-bottom: 1px solid var(--secondary-text-color);
+    border-bottom: 0.5px solid var(--secondary-text-color);
     padding-left: 10px;
     margin-bottom: 10px;
 }
@@ -128,27 +115,46 @@ button.dropdown-toggle{
     color: var(--primaty-text-color);
 }
 
+/* Hero section */
+#hero-title{
+    color: var(--primaty-text-color);
+    font-family: var(--accent-font);
+}
+
+
+#hero-sub{
+    color: var(--accent-color);
+    font-family: var(--accent-font);
+    letter-spacing: 2px;
+    font-weight: bolder;
+}
+
+#hero-p{
+    color: var(--secondary-text-color);
+}
+
+
 /* Market */
 .card{
-    border-radius: 20px;
+    border-radius: 16px;
     border: var(--secondary-text-color) solid 1px;
     box-shadow:
     0 4px 12px rgba(0,0,0,0.25);
 
 }
 
-#mentor-card {
+.mentor-card {
     max-width: 280px;
     margin: 0 auto; /* centers cards */
     border-radius: 16px;
     overflow: hidden;
 }
 
-#profile-image{
+
+img .profile-image{
     height: 220px;
     object-fit: cover;
-    border-radius: 16px;
-    padding: 5px;
+    border-radius: 20px;
 }
 
 .card-btn{
@@ -258,12 +264,9 @@ button.dropdown-toggle{
 /* Media queries */
 
 @media screen and (max-width: 320px) {
-    .navbar-toggler{
-        position: relative;
-        left: 200px;
-        bottom: 40px;
+    .btn-edit{
+        width: 78px;
     }
-
     .navbar{
         height: 50px;
     }

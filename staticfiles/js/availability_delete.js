@@ -1,3 +1,6 @@
+/* jshint esversion: 11 */
+/* global bootstrap */
+
 const deleteSlot = document.getElementById("delete-slot");
 const modalDeleteAvailability = document.getElementById("modalDeleteAvailability");
 const modalDelete= new bootstrap.Modal(modalDeleteAvailability);
