@@ -150,3 +150,46 @@ class TestProfileDeleteView(TestCase):
             Profile.objects.filter(slug='test-user').exists(),
             msg="Profile not deleted"
         )
+
+
+class TestEditProfileView(TestCase):
+    """Test for login required, succesfull editing"""
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username="Test_user",
+            password="testpw123",
+            email="test@test.com"
+        )
+        self.client.login(
+            username="Test_user", password="testpw123")
+
+        self.profile = Profile(user=self.user, name="Test User",
+                               slug="test-user", excerpt="Blog excerpt",
+                               bio="test bio", experience="test experience",
+                               specialism="test specialism", status=1)
+        self.profile.save()
+
+    def test_login_required(self):
+        # check that status_code is not 200, if not logged in
+        self.client.logout()
+        response = self.client.get(reverse('edit_profile'))
+        self.assertNotEqual(response.status_code, 200)
+
+    def test_form_updatet(self):
+        profile_data = {
+            "name": "New Name",
+            "excerpt": "Blog excerpt",
+            "bio": "test bio",
+            "experience": "test experience",
+            "specialism": "test specialism"
+        }
+        response = self.client.post(reverse('edit_profile'), profile_data)
+        self.assertEqual(response.status_code, 200)
+
+        self.assertIn(
+            b"Profile edit successfully submitted",
+            response.content
+        )
+        # Updates DB with new profile_data
+        self.profile.refresh_from_db()
+        self.assertEqual(self.profile.name, "New Name")
