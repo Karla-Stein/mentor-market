@@ -117,3 +117,36 @@ class TestSetMentorAvailabilityView(TestCase):
             b"Slot succesfully added",
             response.content
         )
+
+
+class TestProfileDeleteView(TestCase):
+    """Tests for login required and succefully deletion of a profile"""
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username="Test_user",
+            password="testpw123",
+            email="test@test.com"
+        )
+        self.client.login(
+            username="Test_user", password="testpw123")
+
+        self.profile = Profile(user=self.user, name="Test User",
+                               slug="test-user", excerpt="Blog excerpt",
+                               bio="test bio", experience="test experience",
+                               specialism="test specialism", status=1)
+        self.profile.save()
+
+    def test_status_code_and_response_content(self):
+        response = self.client.get(reverse('profile_delete',
+                                           args=["test-user"]), follow=True)
+        self.assertEqual(response.status_code, 200)
+
+        self.assertIn(
+            b"Profile successfully deleted",
+            response.content
+        )
+        # check if the deleted profile still exists
+        self.assertFalse(
+            Profile.objects.filter(slug='test-user').exists(),
+            msg="Profile not deleted"
+        )
