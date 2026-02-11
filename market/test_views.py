@@ -204,3 +204,48 @@ class TestEditProfileView(TestCase):
         # Updates DB with new profile_data
         self.profile.refresh_from_db()
         self.assertEqual(self.profile.name, "New Name")
+
+    class TestEditAvailability(TestCase):
+        """Test login_required and update availability was successful"""
+        def setUp(self):
+            self.user = User.objects.create_user(
+                username="Test_user",
+                password="testpw123",
+                email="test@test.com"
+            )
+            self.client.login(
+                username="Test_user", password="testpw123")
+
+            self.profile = Profile(user=self.user, name="Test User",
+                                   slug="test-user", excerpt="Blog excerpt",
+                                   bio="test bio",
+                                   experience="test experience",
+                                   specialism="test specialism", status=1)
+            self.profile.save()
+
+            self.timeslot = TimeSlot(mentor=self.profile, date="2026-002-12",
+                                     start_time="10:00",
+                                     end_time="11:00",
+                                     availability_status=0)
+            self.timeslot.save()
+
+        def test_login_required(self):
+            self.client.logout()
+            response = self.client.get(reverse('edit_availability'))
+            self.assertEqual(response.status_code, 302)
+
+        def test_availability_updated(self):
+            slot_data = {
+                "date": "2026-04-28",
+                "start_time": "13:00",
+                "end_time": "14:00"
+            }
+            response = self.client.post(reverse('edit_availability'),
+                                        slot_data)
+            self.assertEqual(response.status_code, 200)
+            self.timeslot.refresh_from_db()
+            self.assertEqual(self.timeslot.start_time, "13:00")
+            self.assertIn(
+                b"Availability successfully updated",
+                response.content
+            )
