@@ -84,7 +84,7 @@ class TestBookingDetailsView(TestCase):
                                visitor_name="Erica Test",
                                visitor_email="test@test.com")
         self.booking.save()
-                              
+
     def test_login_required(self):
         self.client.logout()
         response = self.client.get(reverse('booking_details'))
