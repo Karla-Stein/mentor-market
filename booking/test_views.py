@@ -53,3 +53,51 @@ class TestBookASlotView(TestCase):
                         ).exists(),
                         msg="The booking exist despite not having "
                         "a required email")
+
+
+class TestBookingDetailsView(TestCase):
+    """Test login required and booking exists"""
+    def setUp(self):
+        self.user = User.objects.create_user(
+                username="Test_user",
+                password="testpw123",
+                email="test@test.com"
+            )
+        self.client.login(
+            username="Test_user",
+            password="testpw123"
+        )
+
+        self.profile = Profile(user=self.user, name="Test User",
+                               slug="test-user", excerpt="Blog excerpt",
+                               bio="test bio",
+                               experience="test experience",
+                               specialism="test specialism", status=1)
+        self.profile.save()
+
+        self.timeslot = TimeSlot(mentor=self.profile, date="2026-02-12",
+                                 start_time="10:00",
+                                 end_time="11:00",
+                                 availability_status=0)
+        self.timeslot.save()
+        self.booking = Booking(time_slot=self.timeslot,
+                               visitor_name="Erica Test",
+                               visitor_email="test@test.com")
+        self.booking.save()
+                              
+    def test_login_required(self):
+        self.client.logout()
+        response = self.client.get(reverse('booking_details'))
+        self.assertEqual(response.status_code, 302)
+
+    def test_booking_exists(self):
+        response = self.client.get(reverse('booking_details'))
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Erica Test",
+                      response.content,
+                      msg="No name in response")
+        self.assertIn(
+            self.booking,
+            response.context["booked_slots"],
+            msg="Not booked"
+        )
