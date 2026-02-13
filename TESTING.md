@@ -74,6 +74,25 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 | mentor_market | [urls.py](https://github.com/Karla-Stein/mentor-market/blob/main/mentor_market/urls.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/Karla-Stein/mentor-market/refs/heads/main/mentor_market/urls.py) | ![screenshot](documentation/python_validation/mentor_market_urls.jpeg) | 
 
 
+## Browser Compatibility
+
+I've tested my deployed project on multiple browsers to check for compatibility issues.
+
+| Page | Chrome | Firefox | Safari | Notes |
+| --- | --- | --- | --- | --- |
+| Sign up | ![screenshot](documentation/browsers/chrome_signup.jpeg) | ![screenshot](documentation/browsers/firefox_signup.jpeg) | ![screenshot](documentation/browsers/safari_signup.jpeg) | Works as expected |
+| Log in| ![screenshot](documentation/browsers/chrome_login.jpeg) | ![screenshot](documentation/browsers/firefox_login.jpeg) | ![screenshot](documentation/browsers/safari_login.jpeg) | Works as expected |
+| Log out | ![screenshot](documentation/browsers/chrome_logout.jpeg) | ![screenshot](documentation/browsers/firefox_logout.jpeg) | ![screenshot](documentation/browsers/safari_logout.jpeg) | Works as expected |
+| Home | ![screenshot](documentation/browsers/chrome_home.jpeg) | ![screenshot](documentation/browsers/firefox_home.jpeg) | ![screenshot](documentation/browsers/safari_home.jpeg) | Works as expected |
+| My Profile | ![screenshot](documentation/browsers/chrome_myprofile.jpeg) | ![screenshot](documentation/browsers/firefox_myprofile.jpeg) | ![screenshot](documentation/browsers/safari_myprofile.jpeg) | Works as expected |
+| My Availability | ![screenshot](documentation/browsers/chrome_myavailability.jpeg) | ![screenshot](documentation/browsers/firefox_myavailability.jpeg) | ![screenshot](documentation/browsers/safari_myavailability.jpeg) | Does not work as expected on Safari, as there is no hint that slots must be booked on the hour. |
+| My Bookings | ![screenshot](documentation/browsers/chrome_mybookings.jpeg) | ![screenshot](documentation/browsers/firefox_mybookings.jpeg) | ![screenshot](documentation/browsers/safari_mybookings.jpeg) | Works as expected |
+| Edit Profile | ![screenshot](documentation/browsers/chrome_editprofile.jpeg) | ![screenshot](documentation/browsers/firefox_editprofile.jpeg) | ![screenshot](documentation/browsers/safari_editprofile.jpeg) | Works as expected |
+| Edit Availability | ![screenshot](documentation/browsers/chrome_editavailability.jpeg) | ![screenshot](documentation/browsers/firefox_editavailability.jpeg) | ![screenshot](documentation/browsers/safari_editavailability.jpeg) | Does not work as expected on Safari. No hint that slots must be booked on the hour.|
+| Book A Slot | ![screenshot](documentation/browsers/chrome_bookaslot.jpeg) | ![screenshot](documentation/browsers/firefox_bookaslot.jpeg) | ![screenshot](documentation/browsers/safari_bookaslot.jpeg) | Works as expected |
+| 404 | ![screenshot](documentation/browsers/chrome_404.jpeg) | ![screenshot](documentation/browsers/firefox_404.jpeg) | ![screenshot](documentation/browsers/safari_404.jpeg) | Works as expected |
+
+
 
 ## Lighthouse Audit
 
