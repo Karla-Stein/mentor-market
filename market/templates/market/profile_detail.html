@@ -16,8 +16,10 @@
                     <img id="detailed-image" src="{% static 'images/nobody.jpg' %}" class="card-img-top"
                         alt="Profile-picture">
                     {% else %}
-                    <img id="detailed-profile-image" src="{{ profile.featured_image.url }}" class="card-img-top"
-                        alt="Image of {{ profile.user }}">
+                    {% cloudinary_url profile.featured_image width=417 height=417 crop="fill" gravity="auto" quality="auto" fetch_format="auto" dpr="auto" as img_url %}
+                    <img id="detailed-profile-image" src="{{ img_url }}" class="card-img-top"
+                        alt="Image of {{ profile.user }}" fetchpriority="high"
+                            loading="eager">
                     {% endif %}
                 </div>
             </div>
