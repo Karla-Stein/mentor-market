@@ -93,6 +93,23 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | 404 | ![screenshot](documentation/browsers/chrome_404.jpeg) | ![screenshot](documentation/browsers/firefox_404.jpeg) | ![screenshot](documentation/browsers/safari_404.jpeg) | Works as expected |
 
 
+## Responsiveness
+
+I've tested my deployed project to check for responsiveness issues.
+
+| Page | Mobile | Tablet | Desktop | Notes |
+| --- | --- | --- | --- | --- |
+| Sign up | ![screenshot](documentation/responsiveness/mobile_signup.png) | ![screenshot](documentation/responsiveness/tablet_signup.jpeg) | ![screenshot](documentation/browsers/chrome_signup.jpeg) | Works as expected |
+| Log out | ![screenshot](documentation/responsiveness/mobile_logout.png) | ![screenshot](documentation/responsiveness/tablet_logout.jpeg) | ![screenshot](documentation/browsers/chrome_logout.jpeg) | Works as expected |
+| Log in | ![screenshot](documentation/responsiveness/mobile_login.png) | ![screenshot](documentation/responsiveness/tablet_login.jpeg) | ![screenshot](documentation/browsers/chrome_login.jpeg) | Works as expected |
+| Home | ![screenshot](documentation/responsiveness/mobile_home.png) | ![screenshot](documentation/responsiveness/tablet_home.jpeg) | ![screenshot](documentation/browsers/chrome_home.jpeg) | Works as expected |
+| My Profile | ![screenshot](documentation/responsiveness/mobile_myprofile.png) | ![screenshot](documentation/responsiveness/tablet_myprofile.jpeg) | ![screenshot](documentation/browsers/chrome_myprofile.jpeg) | Works as expected |
+| Edit Profile | ![screenshot](documentation/responsiveness/mobile_profileedit.png) | ![screenshot](documentation/responsiveness/tablet_editprofile.jpeg) | ![screenshot](documentation/browsers/chrome_editprofile.jpeg) | Works as expected |
+| My Availability | ![screenshot](documentation/responsiveness/mobile_myavailability.png) | ![screenshot](documentation/responsiveness/tablet_myavailability.jpeg) | ![screenshot](documentation/browsers/chrome_myavailability.jpeg) | Works as expected |
+| Edit Availability | ![screenshot](documentation/responsiveness/mobile_editavailability.png) | ![screenshot](documentation/responsiveness/tablet_editavailability.jpeg) | ![screenshot](documentation/browsers/chrome_editavailability.jpeg) | Works as expected |
+| My Bookings | ![screenshot](documentation/responsiveness/mobile_mybookings.png) | ![screenshot](documentation/responsiveness//tablet_mybookings.jpeg) | ![screenshot](documentation/browsers/chrome_mybookings.jpeg) | Works as expected |
+| Book A Slot | ![screenshot](documentation/responsiveness/mobile_bookaslot.png) | ![screenshot](documentation/responsiveness/tablet_bookaslot.jpeg) | ![screenshot](documentation/browsers/chrome_bookaslot.jpeg) | Works as expected |
+| 404 | ![screenshot](documentation/responsiveness/mobile_404.png) | ![screenshot](documentation/responsiveness/tablet_404.jpeg) | ![screenshot](documentation/browsers/chrome_404.jpeg) | Works as expected |
 
 ## Lighthouse Audit
 
