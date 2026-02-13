@@ -19,7 +19,7 @@ body {
     background-color: var(--primary-color);
     font-family: var(--secondary-font);
     color: var(--primaty-text-color);
-    padding: 60px 20px;
+    padding: 0px 20px;
 }
 
 .divider{
@@ -267,9 +267,6 @@ img .profile-image{
     .btn-edit{
         width: 78px;
     }
-    .navbar{
-        height: 50px;
-    }
 
     .brand{
         margin-right: 0px;
@@ -283,6 +280,15 @@ img .profile-image{
 
     .btn-edit{
         margin-bottom: 10px;;
+    }
+
+    .navbar{
+        border-bottom: 0px;
+    }
+    button.navbar-toggler{
+        position: relative;
+        left: 200px;
+        bottom: 35px;
     }
 
 }
