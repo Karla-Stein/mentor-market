@@ -84,6 +84,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Log in| ![screenshot](documentation/browsers/chrome_login.jpeg) | ![screenshot](documentation/browsers/firefox_login.jpeg) | ![screenshot](documentation/browsers/safari_login.jpeg) | Works as expected |
 | Log out | ![screenshot](documentation/browsers/chrome_logout.jpeg) | ![screenshot](documentation/browsers/firefox_logout.jpeg) | ![screenshot](documentation/browsers/safari_logout.jpeg) | Works as expected |
 | Home | ![screenshot](documentation/browsers/chrome_home.jpeg) | ![screenshot](documentation/browsers/firefox_home.jpeg) | ![screenshot](documentation/browsers/safari_home.jpeg) | Works as expected |
+| Profile setup  | ![screenshot](documentation/lighthouse/profilesetup_mobile.jpeg) | ![screenshot](documentation/lighthouse/profilesetup_desktop.jpeg) |
 | My Profile | ![screenshot](documentation/browsers/chrome_myprofile.jpeg) | ![screenshot](documentation/browsers/firefox_myprofile.jpeg) | ![screenshot](documentation/browsers/safari_myprofile.jpeg) | Works as expected |
 | My Availability | ![screenshot](documentation/browsers/chrome_myavailability.jpeg) | ![screenshot](documentation/browsers/firefox_myavailability.jpeg) | ![screenshot](documentation/browsers/safari_myavailability.jpeg) | Does not work as expected on Safari, as there is no hint that slots must be booked on the hour. |
 | My Bookings | ![screenshot](documentation/browsers/chrome_mybookings.jpeg) | ![screenshot](documentation/browsers/firefox_mybookings.jpeg) | ![screenshot](documentation/browsers/safari_mybookings.jpeg) | Works as expected |
@@ -103,6 +104,7 @@ I've tested my deployed project to check for responsiveness issues.
 | Log out | ![screenshot](documentation/responsiveness/mobile_logout.png) | ![screenshot](documentation/responsiveness/tablet_logout.jpeg) | ![screenshot](documentation/browsers/chrome_logout.jpeg) | Works as expected |
 | Log in | ![screenshot](documentation/responsiveness/mobile_login.png) | ![screenshot](documentation/responsiveness/tablet_login.jpeg) | ![screenshot](documentation/browsers/chrome_login.jpeg) | Works as expected |
 | Home | ![screenshot](documentation/responsiveness/mobile_home.png) | ![screenshot](documentation/responsiveness/tablet_home.jpeg) | ![screenshot](documentation/browsers/chrome_home.jpeg) | Works as expected |
+| Profile setup  | ![screenshot](documentation/lighthouse/profilesetup_mobile.jpeg) | ![screenshot](documentation/lighthouse/profilesetup_desktop.jpeg) |
 | My Profile | ![screenshot](documentation/responsiveness/mobile_myprofile.png) | ![screenshot](documentation/responsiveness/tablet_myprofile.jpeg) | ![screenshot](documentation/browsers/chrome_myprofile.jpeg) | Works as expected |
 | Edit Profile | ![screenshot](documentation/responsiveness/mobile_profileedit.png) | ![screenshot](documentation/responsiveness/tablet_editprofile.jpeg) | ![screenshot](documentation/browsers/chrome_editprofile.jpeg) | Works as expected |
 | My Availability | ![screenshot](documentation/responsiveness/mobile_myavailability.png) | ![screenshot](documentation/responsiveness/tablet_myavailability.jpeg) | ![screenshot](documentation/browsers/chrome_myavailability.jpeg) | Works as expected |
@@ -117,12 +119,17 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 | Page | Mobile | Desktop |
 | --- | --- | --- |
-| Home | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/home_desktop.jpeg) |
-| My Profile | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/profile_desktop.jpeg) |
-| My availability | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/availability_desktop.jpeg) |
-| My Bookings | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/mybookings_desktop.jpeg) |
-| Profile setup  | ![screenshot](documentation/lighthouse/profilesetup_mobile.jpeg) | ![screenshot](documentation/lighthouse/profilesetup_desktop.jpeg) |
-| Booking Form | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/bookingform_desktop.jpeg) |
-| 404 | ![screenshot](documentation/lighthouse/) | ![screenshot](documentation/lighthouse/) |
+| Sign up | ![screenshot](documentation/lighthouse/mobile_signup.jpeg) | ![screenshot](documentation/lighthouse/signup_desktop.jpeg) |
+| Log in | ![screenshot](documentation/lighthouse/mobile_login.jpeg) | ![screenshot](documentation/lighthouse/login_desktop.jpeg) |
+| Log out | ![screenshot](documentation/lighthouse/mobile_logout.jpeg) | ![screenshot](documentation/lighthouse/logout_desktop.jpeg) |
+| Home | ![screenshot](documentation/lighthouse/mobile_home.jpeg) | ![screenshot](documentation/lighthouse/home_desktop.jpeg) |
+| Profile setup  | ![screenshot](documentation/lighthouse/mobile_profilesetup.jpeg) | ![screenshot](documentation/lighthouse/profilesetup_desktop.jpeg) |
+| My Profile | ![screenshot](documentation/lighthouse/mobile_profiledetail.jpeg) | ![screenshot](documentation/lighthouse/profile_desktop.jpeg) |
+| Edit Profile | ![screenshot](documentation/lighthouse/mobile_editprofile.jpeg) | ![screenshot](documentation/lighthouse/editprofile_desktop.jpeg) |
+| My availability | ![screenshot](documentation/lighthouse/mobile_myavailability.jpeg) | ![screenshot](documentation/lighthouse/availability_desktop.jpeg) |
+| Edit Availability | ![screenshot](documentation/lighthouse/mobile_editavailability.jpeg) | ![screenshot](documentation/lighthouse/editavailability_desktop.jpeg) |
+| My Bookings | ![screenshot](documentation/lighthouse/mobile_mybookings.jpeg) | ![screenshot](documentation/lighthouse/mybookings_desktop.jpeg) |
+| Book A Slot | ![screenshot](documentation/lighthouse/mobile_bookaslot.jpeg) | ![screenshot](documentation/lighthouse/bookingform_desktop.jpeg) |
+| 404 | ![screenshot](documentation/lighthouse/mobile_404.jpeg) | ![screenshot](documentation/lighthouse/404_desktop.jpeg) |
 
 
