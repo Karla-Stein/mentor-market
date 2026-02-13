@@ -44,7 +44,7 @@
                             aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="about nav-link mx-2" aria-current="page" href="#about">About</a>
+                        <a class="about nav-link mx-2" aria-current="page" href="{% url 'home' %}#about">About</a>
                     </li>
                     <!-- Code reused from walkthrough project and adjusted to fit this project -->
                     {% if user.is_authenticated %}
