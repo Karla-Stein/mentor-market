@@ -33,7 +33,15 @@
                         {% if "placeholder" in profile.featured_image.url %}
                         <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="Placeholder Image">
                         {% else %}
-                        <img src="{{ profile.featured_image.url }}" class="profile-image" alt="Profile Image">
+                        <!-- Genereate cloudinary url to serve optimised image formats and improve LCP performance -->
+                        {% cloudinary_url profile.featured_image width=278 height=278 crop="fill" gravity="auto" quality="auto" fetch_format="auto" dpr="auto" as img_url %}
+                        {% if forloop.counter == 1 %}
+                        <img src="{{ img_url }}" class="profile-image" alt="Profile Image" fetchpriority="high"
+                            loading="eager" width="278" height="278">
+                        {% else %}
+                        <img src="{{ img_url }}" class="profile-image" alt="Profile Image" loading="lazy" width="278"
+                            height="278">
+                        {% endif %}
                         {% endif %}
                         <div class="card-body text-center d-flex flex-column">
                             <p class="card-title text-muted">Name: {{ profile.name }}</p>
