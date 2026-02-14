@@ -164,14 +164,6 @@ Defensive programming was manually tested to ensure the application handles inva
 
 ## User Story Testing
 
-⚠️ INSTRUCTIONS ⚠️
-
-Testing User Stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **Features** should already align with the **User Stories**, so this should be as simple as creating a table with the User Story, matching with the re-used screenshot from the respective Feature.
-
-⚠️ --- END --- ⚠️
-
 | Target | Expectation | Outcome | Screenshot |
 | --- | --- | --- | --- |
 | As a visitor |  I can scroll through a feed of approved Mentor cards | so that I can quickly find a suitable Mentor.| ![screenshot](documentation/features/paginated_mentor_list.jpeg) |
