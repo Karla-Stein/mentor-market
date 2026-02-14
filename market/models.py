@@ -55,8 +55,7 @@ class TimeSlot(models.Model):
         unique_together = ("mentor", "date", "start_time", "end_time")
 
     def __str__(self):
-        return f"({self.mentor.name} is available on "
-        f"{self.date} from {self.start_time} to {self.end_time})"
+        return f"{self.mentor}{self.date} {self.start_time} {self.end_time}"
 
     # combine slot date and start_time to be
     # able to compare with current datetime

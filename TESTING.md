@@ -161,3 +161,33 @@ Defensive programming was manually tested to ensure the application handles inva
 | Admin Access | Standard users must not access admin pages. | Logged in as authnticated non-superuser and navigated to `/admin/`. | Access denied / redirected to admin login. | ![screenshot](documentation/defensive/admin_restriction.jpeg) |
 | 404 Handling | Invalid URLs should not expose debug information. | Visited non-existent URL. | Custom 404 handling displayed safely. | ![screenshot](documentation/defensive/404_page.jpeg)|
 
+
+## User Story Testing
+
+⚠️ INSTRUCTIONS ⚠️
+
+Testing User Stories is actually quite simple, once you've already got the stories defined on your README.
+
+Most of your project's **Features** should already align with the **User Stories**, so this should be as simple as creating a table with the User Story, matching with the re-used screenshot from the respective Feature.
+
+⚠️ --- END --- ⚠️
+
+| Target | Expectation | Outcome | Screenshot |
+| --- | --- | --- | --- |
+| As a visitor |  I can scroll through a feed of approved Mentor cards | so that I can quickly find a suitable Mentor.| ![screenshot](documentation/features/paginated_mentor_list.jpeg) |
+| As a visitor | I can view a Mentor's detailed profile | so that I can decide whether to book with them.| ![screenshot](documentation/features/detailed_profile.jpeg) |
+| As a visitor | I can book an available slot by submitting my details | so that I can schedule a mentoring session.| ![screenshot](documentation/features/booking_form.jpeg) |
+| As a mentor | I can create an account  | so that I can apply to be listed on the platform.| ![screenshot](documentation/features/sign_up.jpeg) |
+| As a mentor | I can log in and log out | so that I can mange my profile and available slots securely. | ![screenshot](documentation/features/sign_in.jpeg) ![screenshot](documentation/features/sign_out.jpeg) |
+| As a mentor | I can create and edit my profile | so that I can offer my mentoring to clients. |![screenshot](documentation/features/profile_setup_form.jpeg) ![screenshot](documentation/features/profile_edit.jpeg) |
+| As a mentor | I can alter my profile | so that I can update or delete my offering. | ![screenshot](documentation/features/profile_delete_modal.jpeg) |
+| As a mentor | I can add slots that are available on the hour | so that visitors can book time with me. | ![screenshot](documentation/defensive/form_invalid_time.jpeg) |
+| As a mentor | I can edit my availability | so that I can correct times or update my schedule. | ![screenshot](documentation/features/manage_availability.jpeg) |
+| As a mentor | I can delete an unbooked slot | so that I can remove availability I no longer want to offer. | ![screenshot](documentation/features/manage_availability.jpeg) |
+| As a mentor | I can view my upcoming bookings | so that I know who I am meeting and when. | ![screenshot](documentation/features/my_bookings_details.jpeg) |
+| As the Platform | I can prevent bookings within 24 hours of the session start | so that Mentors are given enough time to respond to their mentees. | ![screenshot](documentation/userstory_testing/date_of_today.jpeg) ![screenshot](documentation/userstory_testing/existing_slot.jpeg) ![screenshot](documentation/userstory_testing/slot_not_visible_for%20_visitor.jpeg)|
+| As the platform | I can prevent the same slot being booked by more than one person | so that schedules stay accurate.| ![screenshot](documentation//userstory_testing/slot_booked.jpeg) ![screenshot](documentation//userstory_testing/slot_hidden.jpeg) |
+| As an Admin | I can review and approve mentor profiles | so that only suitable mentors are published. | ![screenshot](documentation/features/admin_control.jpeg) |
+
+
+
