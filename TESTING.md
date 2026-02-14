@@ -133,3 +133,31 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | 404 | ![screenshot](documentation/lighthouse/mobile_404.jpeg) | ![screenshot](documentation/lighthouse/404_desktop.jpeg) |
 
 
+## Defensive Programming
+
+
+Defensive programming was manually tested to ensure the application handles invalid input, prevents unauthorised access and protects user data. Testing was performed across user types: guest user, Mentor A, Mentor B, and admin/superuser where applicable.
+
+| Page / Feature | Expectation | Test Performed | Result Received | Screenshot |
+| --- | --- | --- | --- | --- | 
+| Profile setup | Mentor must be logged in to create a profile. | Attempted to access profile setup while logged out. | Redirected to login page (access denied). | ![screenshot](documentation/defensive/not_authorised_setup_to_login.jpeg)|
+|  | Users cannot submit an empty profile form. | Profile form with required fields submitted blank. | Validation errors displayed; profile not created. | ![screenshot](documentation/defensive/profile_setup_blank_field.jpeg)|
+|  | Slug is generated safely from mentor name. | Created profile with valid name containing spaces/capital letters. | Slug generated correctly and profile saved. | ![screenshot](documentation/defensive/slug.jpeg) |
+| Edit Profile | A mentor can only edit their own profile. | Logged in as Mentor A, visited `edit-profile/` and confirmed the form loads with Mentor A’s existing data. | Form was pre-populated with Mentor A’s profile. | ![screenshot](documentation/defensive/edit_profile_formload.jpeg) |
+|  | A mentor can not edit another mentor’s profile via URL manipulation. | Logged in as Mentor A and attempted to access another profile by altering the URL. (Not possible by design because `edit-profile/` does not accept a `pk` or `slug`.) Also attempted direct access to a public profile URL (`/<slug>/`) and confirmed it only displays details, not an edit option. | Access denied. 404 returned. | ![screenshot](documentation/defensive/mentor-edit-404.jpeg) |
+| Delete Profile | A mentor can only delete their own profile. | Logged in as Mentor A and used the delete option from their own profile. | Profile was deleted successfully and user was redirected as expected. | ![screenshot](documentation/defensive/successfull_profile_delete.jpeg) |
+|  | A mentor can not be able to delete another mentor’s profile. | Logged in as Mentor A and viewed Mentor B’s profile. The delete button was not displayed in the UI. Then manually attempted to access Mentor B’s delete URL by altering the slug in the browser. | Deletion was prevented at two levels: (1) the delete button is conditionally rendered only for the profile owner, and (2) the backend view validates ownership (`if request.user == profile.user`) before deleting. Only the profile owner can initiate deletion. | ![screenshot](documentation/defensive/no_permission_feedback.jpeg) |
+| Availability  | Mentor must be authenticated and published to access availability setup. | Tried manipulationg the url to get to availability page while logged in but not published. | Redirected to home page. | ![screenshot](documentation/defensive/availability_access_for_non_published.jpeg)|
+|  | Date fields must be valid. | Submitted availability form with missing date field. | Validation errors shown; slot not created. | ![screenshot](documentation/defensive/form_no_date.jpeg) |
+| | Time fields must be valid. | Submitted availability form with missing time field. | Validation errors shown; slot not created. | ![screenshot](documentation/defensive/form_no_time.jpeg) |
+| | Time must be set on the hour. | Submitted availability form with invalid time. | Validation errors shown; slot not created. | ![screenshot](documentation/defensive/form_invalid_time.jpeg) |
+|  | Time slots must be unique. | Tried to create the same slot on the same date. | Error message shown; timeoverlap slot not saved. | ![screenshot](documentation/defensive/timeoverlap.jpeg)|
+|  | Mentors cannot edit/delete another mentor’s slot. | Logged in as Mentor B and accessed Mentor A’s edit slot URL. | Access denied / 404 returned. | ![screenshot](documentation/defensive/edit_availability_404.jpeg) |
+| Booking | Visitors can book without authentication. | Booked an available slot as guest user. | Booking created successfully. | ![screenshot](documentation/defensive//booking_confirmation.jpeg)|
+|  | Required fields must be completed. | Submitted booking form without name/email. | Validation errors displayed; booking not created. | ![screenshot](documentation/defensive/booking_form_required.jpeg) |
+|  | Slots cannot be booked more than once. | Booked a slot then attempted booking same slot again via URL. | Booking prevented; 404 returned. | ![screenshot](documentation/defensive/book_a_slot_404.jpeg)|
+| Booking (Mentor View) | Only authenticated mentors can view bookings. | Attempted to access booking details page via url while logged out. | Access denied. 404 returned. | ![screenshot](documentation/defensive//booking_details_404.jpeg)  |
+|  | Mentors should only see their own bookings. | Logged in as Mentor A, viewed Mentor B's profile and tried altering the url. | Mentor B's bookings are not accessible. 404 returned. | ![screenshot](documentation/defensive//booking_detail_restriction.jpeg)|
+| Admin Access | Standard users must not access admin pages. | Logged in as authnticated non-superuser and navigated to `/admin/`. | Access denied / redirected to admin login. | ![screenshot](documentation/defensive/admin_restriction.jpeg) |
+| 404 Handling | Invalid URLs should not expose debug information. | Visited non-existent URL. | Custom 404 handling displayed safely. | ![screenshot](documentation/defensive/404_page.jpeg)|
+

@@ -118,6 +118,14 @@ def set_mentor_availability(request):
     """
     availability_form = AvailabilitySetup()
     profile = get_object_or_404(Profile, user=request.user)
+    if profile.status == 0:
+        messages.add_message(
+                request,
+                messages.ERROR,
+                "Sorry, you can't access availabilities yet."
+            )
+
+        return redirect("home")
     time_slots = TimeSlot.objects.filter(
         mentor=profile,
         availability_status=0).order_by("date")
@@ -145,7 +153,7 @@ def set_mentor_availability(request):
                         messages.add_message(
                             request,
                             messages.ERROR,
-                            "Time overlap"
+                            "Time overlap. The slot was not created"
                         )
                         return redirect("availability")
 
@@ -193,6 +201,11 @@ def profile_delete(request, slug):
             request,
             messages.SUCCESS,
             "Profile successfully deleted"
+        )
+    messages.add_message(
+            request,
+            messages.ERROR,
+            "You have no permission to delete this account."
         )
 
     return redirect("home")
