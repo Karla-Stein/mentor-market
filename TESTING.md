@@ -84,7 +84,7 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Log in| ![screenshot](documentation/browsers/chrome_login.jpeg) | ![screenshot](documentation/browsers/firefox_login.jpeg) | ![screenshot](documentation/browsers/safari_login.jpeg) | Works as expected |
 | Log out | ![screenshot](documentation/browsers/chrome_logout.jpeg) | ![screenshot](documentation/browsers/firefox_logout.jpeg) | ![screenshot](documentation/browsers/safari_logout.jpeg) | Works as expected |
 | Home | ![screenshot](documentation/browsers/chrome_home.jpeg) | ![screenshot](documentation/browsers/firefox_home.jpeg) | ![screenshot](documentation/browsers/safari_home.jpeg) | Works as expected |
-| Profile setup  | ![screenshot](documentation/lighthouse/profilesetup_mobile.jpeg) | ![screenshot](documentation/lighthouse/profilesetup_desktop.jpeg) |
+| Profile setup  | ![screenshot](documentation/browsers/chrome_profilesetup.jpeg) | ![screenshot](documentation/browsers/firefox_profilesetup.jpeg) |  ![screenshot](documentation/browsers/safari_setup.jpeg) | works as expected |
 | My Profile | ![screenshot](documentation/browsers/chrome_myprofile.jpeg) | ![screenshot](documentation/browsers/firefox_myprofile.jpeg) | ![screenshot](documentation/browsers/safari_myprofile.jpeg) | Works as expected |
 | My Availability | ![screenshot](documentation/browsers/chrome_myavailability.jpeg) | ![screenshot](documentation/browsers/firefox_myavailability.jpeg) | ![screenshot](documentation/browsers/safari_myavailability.jpeg) | Does not work as expected on Safari, as there is no hint that slots must be booked on the hour. |
 | My Bookings | ![screenshot](documentation/browsers/chrome_mybookings.jpeg) | ![screenshot](documentation/browsers/firefox_mybookings.jpeg) | ![screenshot](documentation/browsers/safari_mybookings.jpeg) | Works as expected |
@@ -193,7 +193,7 @@ I've used [GitHub Issues](https://www.github.com/Karla-Stein/mentor-market/issue
 
 All previously closed/fixed bugs can be tracked [here](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue+is%3Aclosed+label%3Abug).
 
-![screenshot](documentation/bugs/gh-issues-closed.png)
+![screenshot](documentation/bugs/closed.jpeg)
 
 
 
@@ -202,15 +202,23 @@ All previously closed/fixed bugs can be tracked [here](https://www.github.com/Ka
 
 [![GitHub issue custom search](https://img.shields.io/github/issues-search/Karla-Stein/mentor-market?query=is%3Aissue%2Bis%3Aopen%2Blabel%3Abug&label=Unfixed%20Bugs&color=red)](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
-Any remaining open issues can be tracked [here](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
+Any remaining open issues can be tracked [here](https://github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
 
-![screenshot](documentation/bugs/gh-issues-open.png)
+![screenshot](documentation/bugs/open.jpeg)
 
 ### Known Issues
 
 | Issue | Screenshot |
 | --- | --- |
 | The project is designed to be responsive from `320px` and upwards, in line with the material taught on the course LMS. Minor layout inconsistencies may occur on extra-wide (e.g. 4k/8k monitors), or smart-display devices (e.g. Nest Hub, Smart Watches, Gameboy Color, etc.), as these resolutions are outside the project’s scope, as taught by Code Institute. | ![screenshot](documentation/issues/poor_responsiveness.jpeg) |
+| Lighthouse reports a **Best Practices warning related to third-party cookies**. These originate from Cloudinary, which is used to serve optimised images. Cookie behaviour is controlled by the external CDN provider and cannot be managed within the Django application. This was accepted as a deliberate trade-off to improve performance and LCP. | ![screenshot](documentation/issues/thirdparty_cookies.jpeg) |
+| Lighthouse flags the use of **third-party cookies** because image assets are served via Cloudinary. This is an accepted to achieve better image optimisation and faster loading performance. No functional or security impact was observed within the application itself. | ![screenshot](documentation/issues/devtool_issues.jpeg) |
+
+
+### Testing Evidence Validation
+
+Following final bug fixes and optimisation updates, the full testing process was repeated to verify that previously recorded results, screenshots and documented outcomes remained valid. All testing evidence included in this documentation reflects the current deployed version of the application.
+
 
 > [!IMPORTANT]  
 > There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
