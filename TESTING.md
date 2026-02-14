@@ -172,7 +172,7 @@ Defensive programming was manually tested to ensure the application handles inva
 | As a mentor | I can create an account  | so that I can apply to be listed on the platform.| ![screenshot](documentation/features/sign_up.jpeg) |
 | As a mentor | I can log in and log out | so that I can mange my profile and available slots securely. | ![screenshot](documentation/features/sign_in.jpeg) ![screenshot](documentation/features/sign_out.jpeg) |
 | As a mentor | I can create and edit my profile | so that I can offer my mentoring to clients. |![screenshot](documentation/features/profile_setup_form.jpeg) ![screenshot](documentation/features/profile_edit.jpeg) |
-| As a mentor | I can alter my profile | so that I can update or delete my offering. | ![screenshot](documentation/features/profile_delete_modal.jpeg) |
+| As a mentor | I can alter my profile | so that I can update or delete my offering. | ![screenshot](documentation/features/edit_delete_features.jpeg) ![screenshot](documentation/features/profile_delete_modal.jpeg) |
 | As a mentor | I can add slots that are available on the hour | so that visitors can book time with me. | ![screenshot](documentation/defensive/form_invalid_time.jpeg) |
 | As a mentor | I can edit my availability | so that I can correct times or update my schedule. | ![screenshot](documentation/features/manage_availability.jpeg) |
 | As a mentor | I can delete an unbooked slot | so that I can remove availability I no longer want to offer. | ![screenshot](documentation/features/manage_availability.jpeg) |
@@ -180,6 +180,40 @@ Defensive programming was manually tested to ensure the application handles inva
 | As the Platform | I can prevent bookings within 24 hours of the session start | so that Mentors are given enough time to respond to their mentees. | ![screenshot](documentation/userstory_testing/date_of_today.jpeg) ![screenshot](documentation/userstory_testing/existing_slot.jpeg) ![screenshot](documentation/userstory_testing/slot_not_visible_for%20_visitor.jpeg)|
 | As the platform | I can prevent the same slot being booked by more than one person | so that schedules stay accurate.| ![screenshot](documentation//userstory_testing/slot_booked.jpeg) ![screenshot](documentation//userstory_testing/slot_hidden.jpeg) |
 | As an Admin | I can review and approve mentor profiles | so that only suitable mentors are published. | ![screenshot](documentation/features/admin_control.jpeg) |
+
+
+## Bugs
+
+
+### Fixed Bugs
+
+[![GitHub issue custom search](https://img.shields.io/github/issues-search/Karla-Stein/mentor-market?query=is%3Aissue%20is%3Aclosed%20label%3Abug&label=Fixed%20Bugs&color=green)](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
+
+I've used [GitHub Issues](https://www.github.com/Karla-Stein/mentor-market/issues) to track and manage bugs and issues during the development stages of my project.
+
+All previously closed/fixed bugs can be tracked [here](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue+is%3Aclosed+label%3Abug).
+
+![screenshot](documentation/bugs/gh-issues-closed.png)
+
+
+
+### Unfixed Bugs
+
+
+[![GitHub issue custom search](https://img.shields.io/github/issues-search/Karla-Stein/mentor-market?query=is%3Aissue%2Bis%3Aopen%2Blabel%3Abug&label=Unfixed%20Bugs&color=red)](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+
+Any remaining open issues can be tracked [here](https://www.github.com/Karla-Stein/mentor-market/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
+
+![screenshot](documentation/bugs/gh-issues-open.png)
+
+### Known Issues
+
+| Issue | Screenshot |
+| --- | --- |
+| The project is designed to be responsive from `320px` and upwards, in line with the material taught on the course LMS. Minor layout inconsistencies may occur on extra-wide (e.g. 4k/8k monitors), or smart-display devices (e.g. Nest Hub, Smart Watches, Gameboy Color, etc.), as these resolutions are outside the project’s scope, as taught by Code Institute. | ![screenshot](documentation/issues/poor_responsiveness.jpeg) |
+
+> [!IMPORTANT]  
+> There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
 
 
 
